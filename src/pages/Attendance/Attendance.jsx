@@ -9,9 +9,14 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import useGetLoginUser from "../../hooks/loginUser/useGetLoginUser";
 
 const Attendance = () => {
   const [attendanceData, setAttendanceData] = useState([]);
+  const [getLoginUser, setgetLoginUser] = useState([]);
+  const { data, error } = useGetLoginUser();
+
+  console.log(data);
 
   useEffect(() => {
     axios
@@ -66,9 +71,7 @@ const Attendance = () => {
                     key={data}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
-                      
-                    </TableCell>
+                    <TableCell component="th" scope="row"></TableCell>
                     <TableCell align="right"></TableCell>
                     <TableCell align="right"></TableCell>
                     <TableCell align="right"></TableCell>

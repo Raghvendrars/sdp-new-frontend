@@ -43,13 +43,14 @@ export default function SignIn() {
   const [id, setIdOfUser] = useState("");
   const [password, setPasswordOfUser] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  const handleSubmit = (e) => {
+    console.log(id, password);
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
     console.log(data);
     axios
       .post(
-        "http://localhost:5000/employeeAuth/employeeLogin",
+        "http://localhost:5000/auth/login",
         {
           id,
           password,
@@ -75,15 +76,13 @@ export default function SignIn() {
           setUser(res.data);
           if (res.data) {
             navigate("/dashboard");
-          }else{
+          } else {
             navigate("/login");
           }
-
         });
     } catch (err) {
       console.log(err);
     }
-    
   }, []);
 
   return (
@@ -98,7 +97,7 @@ export default function SignIn() {
       }}
     >
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+        <CssBaseline />e
         <Box
           sx={{
             marginTop: 8,
@@ -115,7 +114,7 @@ export default function SignIn() {
           </Typography>
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={(e) => handleSubmit(e)}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -128,8 +127,8 @@ export default function SignIn() {
               name="id"
               autoComplete="id"
               autoFocus
-              onChange={(event) => {
-                setIdOfUser(event.target.value);
+              onChange={(e) => {
+                setIdOfUser(e.target.value);
               }}
             />
             <TextField
@@ -140,8 +139,8 @@ export default function SignIn() {
               label="Password"
               type="password"
               id="password"
-              onChange={(event) => {
-                setPasswordOfUser(event.target.value);
+              onChange={(e) => {
+                setPasswordOfUser(e.target.value);
               }}
               autoComplete="current-password"
             />
