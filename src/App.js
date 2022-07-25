@@ -3,11 +3,11 @@ import Home from "./Home";
 // import Login from "./Login";
 import { useState, useEffect } from "react";
 import { Paper, Grid, Button, Typography } from "@mui/material";
-import Sidebar from "./Components/Sidebar";
+import Sidebar from "./components/Sidebar";
 import DashboardRouter from "./Router/Router";
 import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
 import axios from "axios";
-import Login from "./Pages/LoginSignup/Login";
+import Login from "./pages/LoginSignup/Login";
 
 function App() {
   useEffect(() => {

@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Paper, Grid, Button, Typography, Container } from "@mui/material";
 import { MdMiscellaneousServices } from "react-icons/md";
-import ListAllLeaves from "../../Pages/DashboardPages/ListAllLeaves";
-import ListAllHolidays from "../../Pages/DashboardPages/ListAllHolidays";
+import ListAllLeaves from "../../pages/DashboardPages/ListAllLeaves";
+import ListAllHolidays from "../../pages/DashboardPages/ListAllHolidays";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});

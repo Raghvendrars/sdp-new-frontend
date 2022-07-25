@@ -1,16 +1,14 @@
 import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Paper, Grid, Button, Typography, Container } from "@mui/material";
-import Home from "../Home";
-import Login from "../Pages/LoginSignup/Login";
 import axios from "axios";
 import Dashboard from "../Views/EmployeeView/Dashboard";
-import LeaveRequest from "../Pages/LeaveRequest/LeaveRequest";
-import ListLeaveRequests from "../Pages/LeaveRequest/ListLeaveRequests";
-import ListAllServiceRequest from "../Pages/ServiceRequest/ListAllServiceRequest";
-import ServiceRequest from "../Pages/ServiceRequest/ServiceRequest";
-import Header from "../Components/Header";
-import Attendance from "../Pages/Attendance/Attendance";
+import LeaveRequest from "../pages/LeaveRequest/LeaveRequest";
+import ListLeaveRequests from "../pages/LeaveRequest/ListLeaveRequests";
+import ListAllServiceRequest from "../pages/ServiceRequest/ListAllServiceRequest";
+import ServiceRequest from "../pages/ServiceRequest/ServiceRequest";
+import Header from "../components/Header";
+import Attendance from "../pages/Attendance/Attendance";
 import {useNavigate} from 'react-router-dom'
 
 const DashboardRouter = () => {

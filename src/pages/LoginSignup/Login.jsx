@@ -73,13 +73,17 @@ export default function SignIn() {
         })
         .then((res) => {
           setUser(res.data);
+          if (res.data) {
+            navigate("/dashboard");
+          }else{
+            navigate("/login");
+          }
+
         });
     } catch (err) {
       console.log(err);
     }
-    if (user) {
-      navigate("/dashboard");
-    }
+    
   }, []);
 
   return (
