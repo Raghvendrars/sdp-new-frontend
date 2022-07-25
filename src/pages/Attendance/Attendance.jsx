@@ -24,64 +24,57 @@ const Attendance = () => {
       .then((res) => {
         setAttendanceData(res?.data);
       });
+
+
+     
+
   }, []);
 
-  console.log(attendanceData);
 
   return (
-    <Paper>
-      <Paper></Paper>
-
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {attendanceData.map((row) => (
-              <TableRow
-                key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+    <Paper elevation={0} sx={{ bgcolor: "transparent" }}>
+      <Paper
+        sx={{ width: "90%", mx: "auto", mt: 10, bgcolor: "transparent" }}
+        elevation={0}
+      >
+        <TableContainer>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>No</TableCell>
+                <TableCell align="right">Date</TableCell>
+                <TableCell align="right">Entry Time</TableCell>
+                <TableCell align="right">Exit Time</TableCell>
+                <TableCell align="right">Total Hours</TableCell>
               </TableRow>
-            ))}
-
-            {attendanceData.length > 0 ? (
-              attendanceData.map((data) => {
-                return (
-                  <TableRow
-                    key={data}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      
-                    </TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                  </TableRow>
-                );
-              })
-            ) : (
-              <h4>no data found</h4>
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {attendanceData.length > 0 ? (
+                attendanceData.map((data, k) => {
+                  let date = new Date(data.createdAt).toLocaleDateString();
+                  console.log(data.entryTime);
+                  return (
+                    <TableRow
+                      key={k}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        {k + 1}
+                      </TableCell>
+                      <TableCell align="right">{date}</TableCell>
+                      <TableCell align="right">{data.entryTime}</TableCell>
+                      <TableCell align="right">{data.exitTime}</TableCell>
+                      <TableCell align="right">8 Hrs</TableCell>
+                    </TableRow>
+                  );
+                })
+              ) : (
+                <h4>no data found</h4>
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
     </Paper>
   );
 };
