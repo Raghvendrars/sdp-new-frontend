@@ -5,6 +5,9 @@ import { Paper, Grid, Button, Typography, Container } from "@mui/material";
 import { MdMiscellaneousServices } from "react-icons/md";
 import ListAllLeaves from "../../pages/DashboardPages/ListAllLeaves";
 import ListAllHolidays from "../../pages/DashboardPages/ListAllHolidays";
+import { ImExit } from "react-icons/im";
+import { HiOutlineUserGroup } from "react-icons/hi";
+import { FaMoneyCheckAlt } from "react-icons/fa";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -53,7 +56,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-          <Paper sx={{bgcolor:"transparent"}} elevation={0}>
+          <Paper sx={{ bgcolor: "transparent" }} elevation={0}>
             <Grid container>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
                 <Button
@@ -92,7 +95,13 @@ const Dashboard = () => {
                     window.location.href = "/leaverequest/listleaverequests";
                   }}
                 >
-                  Applied Leaves
+                  <Typography sx={{ color: "#ff7c00" }}>
+                    <ImExit size={100} />
+                  </Typography>
+                  <br />
+                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                    Applied Leaves
+                  </Typography>
                 </Button>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
@@ -109,7 +118,13 @@ const Dashboard = () => {
                     window.location.href = "/attendance";
                   }}
                 >
-                  Attendance
+                  <Typography sx={{ color: "#00B8FF" }}>
+                    <HiOutlineUserGroup size={100} />
+                  </Typography>
+                  <br />
+                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                    Attendance
+                  </Typography>
                 </Button>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
@@ -123,7 +138,13 @@ const Dashboard = () => {
                     borderRadius: "20px",
                   }}
                 >
-                  Payrole
+                  <Typography sx={{ color: "#FFD600" }}>
+                    <FaMoneyCheckAlt size={100} />
+                  </Typography>
+                  <br />
+                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                    Payrole
+                  </Typography>
                 </Button>
               </Grid>
             </Grid>
@@ -131,26 +152,9 @@ const Dashboard = () => {
         </Grid>
 
         <Grid item xl={12} lg={12} md={12} sm={12} xs={12} mt={2}>
-          <Paper sx={{ width: "100%", padding: "0px" }}>
-            <Typography
-              sx={{
-                fontFamily: "Inter",
-                fontSize: "20px",
-                fontWeight: "bold",
-                textAlign: "left",
-              }}
-            >
-              My Leaves
-            </Typography>
-          </Paper>
           <Grid container mt={1}>
-            <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-              <Paper sx={{ width: "100%", padding: "0px" }}>
-                <ListAllLeaves />
-              </Paper>
-            </Grid>
-            <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-              <Paper sx={{ width: "100%", padding: "0px" }}>
+            <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+              <Paper sx={{ width: "90%", padding: "0px", mx: "auto" }}>
                 <ListAllHolidays />
               </Paper>
             </Grid>
