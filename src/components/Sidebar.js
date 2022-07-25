@@ -22,6 +22,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState({});
+  console.log(user);
 
   useEffect(() => {
     try {
@@ -58,22 +59,186 @@ const Sidebar = () => {
           },
         }}
       >
-        
+        {/*{user ? ({user?.employeeInfo?.name}):()}*/}
+        <Container>
+          <Stack spacing={4}>
+            <a href="/">
+              <Paper
+                sx={{
+                  width: "100%",
+                  mt: 5,
+                  bgcolor: "transparent",
+                  textAlign: "left",
+                }}
+                elevation={0}
+              >
+                <img src={Logo} alt="logoimg" width="200px" />
+              </Paper>
+            </a>
+            <Paper
+              sx={{
+                height: "60px",
+                bgcolor: "#EDEFF1",
+                borderRadius: "10px",
+              }}
+              elevation={0}
+            >
+              <Grid container>
+                <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                  <Box
+                    sx={{
+                      borderRadius: "50px",
+                      width: "40px",
+                      height: "40px",
+                      mx: "auto",
+                      mt: 1.2,
+                    }}
+                  >
+                    <img
+                      src={AvtarImg}
+                      alt="Avtar"
+                      width="40px"
+                      height="auto"
+                    />
+                  </Box>
+                </Grid>
+                <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                  <Typography
+                    sx={{
+                      fontSize: "17px",
+                      mt: 2,
+                      textAlign: "left",
+                      ml: 2,
+                      fontWight: 500,
+                    }}
+                  >
+                    {user?.employeeName}
+                  </Typography>
+                </Grid>
+              </Grid>{" "}
+            </Paper>
+            <Paper
+              sx={{
+                bgcolor: "transparent",
+                borderRadius: "0px",
+                paddingTop: "30px",
+              }}
+              elevation={0}
+            >
+              <Stack spacing={2}>
+                <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Paper sx={ActiveSidebarBox} elevation={0}>
+                    <Grid container mt={1}>
+                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                        <Typography
+                          sx={{ color: "#2266D1", fontSize: "20px", mt: 0.5 }}
+                        >
+                          <MdSpaceDashboard />
+                        </Typography>
+                      </Grid>
+                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                        <Typography sx={SidebarActiveTextStyle}>
+                          Dashboard
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Link>
+                <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Paper sx={ActiveSidebarBox} elevation={0}>
+                    <Grid container mt={1}>
+                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                        <Typography
+                          sx={{ color: "#2266D1", fontSize: "17px", mt: 0.8 }}
+                        >
+                          <BsFillCalendarEventFill />
+                        </Typography>
+                      </Grid>
+                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                        <Typography sx={SidebarActiveTextStyle}>
+                          Apply for Leave
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Link>
+                <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Paper sx={ActiveSidebarBox} elevation={0}>
+                    <Grid container mt={1}>
+                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                        <Typography
+                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                        >
+                          <MdMiscellaneousServices />
+                        </Typography>
+                      </Grid>
+                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                        <Typography sx={SidebarActiveTextStyle}>
+                          Request a Service
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Link>
+                <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Paper sx={UnactiveSidebarBox} elevation={0}>
+                    <Grid container mt={1}>
+                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                        <Typography
+                          sx={{ color: "gray", fontSize: "23px", mt: 0.5 }}
+                        >
+                          <BiRupee />
+                        </Typography>
+                      </Grid>
+                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                        <Typography sx={SidebarUnactiveTextStyle}>
+                          View Payrole
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Link>
+              </Stack>
+            </Paper>
+          </Stack>
+        </Container>
+      </Paper>
+
+      <Paper
+        elevation={0}
+        sx={{
+          bgcolor: "transparent",
+          display: {
+            xl: "none",
+            lg: "none",
+            md: "none",
+            sm: "block",
+            xs: "block",
+          },
+        }}
+      >
+        {open ? (
+          <Button onClick={() => setOpen(false)}>Close</Button>
+        ) : (
+          <Button onClick={() => setOpen(true)}>
+            <GiHamburgerMenu />
+          </Button>
+        )}
+
+        {open ? (
           <Container>
             <Stack spacing={4}>
-              <a href="/">
-                <Paper
-                  sx={{
-                    width: "100%",
-                    mt: 5,
-                    bgcolor: "transparent",
-                    textAlign: "left",
-                  }}
-                  elevation={0}
-                >
-                  <img src={Logo} alt="logoimg" width="200px" />
-                </Paper>
-              </a>
+              <Paper
+                sx={{
+                  width: "100%",
+                  mt: 5,
+                  bgcolor: "transparent",
+                  textAlign: "left",
+                }}
+                elevation={0}
+              >
+                <img src={Logo} alt="logoimg" width="200px" />
+              </Paper>
               <Paper
                 sx={{
                   height: "60px",
@@ -130,7 +295,11 @@ const Sidebar = () => {
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
                           <Typography
-                            sx={{ color: "#2266D1", fontSize: "20px", mt: 0.5 }}
+                            sx={{
+                              color: "#2266D1",
+                              fontSize: "20px",
+                              mt: 0.5,
+                            }}
                           >
                             <MdSpaceDashboard />
                           </Typography>
@@ -148,7 +317,11 @@ const Sidebar = () => {
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
                           <Typography
-                            sx={{ color: "#2266D1", fontSize: "17px", mt: 0.8 }}
+                            sx={{
+                              color: "#2266D1",
+                              fontSize: "17px",
+                              mt: 0.8,
+                            }}
                           >
                             <BsFillCalendarEventFill />
                           </Typography>
@@ -166,7 +339,11 @@ const Sidebar = () => {
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
                           <Typography
-                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                            sx={{
+                              color: "#2266D1",
+                              fontSize: "21px",
+                              mt: 0.5,
+                            }}
                           >
                             <MdMiscellaneousServices />
                           </Typography>
@@ -201,183 +378,6 @@ const Sidebar = () => {
               </Paper>
             </Stack>
           </Container>
-
-      </Paper>
-
-      <Paper
-        elevation={0}
-        sx={{
-          bgcolor: "transparent",
-          display: {
-            xl: "none",
-            lg: "none",
-            md: "none",
-            sm: "block",
-            xs: "block",
-          },
-        }}
-      >
-        {open ? (
-          <Button onClick={() => setOpen(false)}>Close</Button>
-        ) : (
-          <Button onClick={() => setOpen(true)}>
-            <GiHamburgerMenu />
-          </Button>
-        )}
-
-        {open ? (
-            <Container>
-              <Stack spacing={4}>
-                <Paper
-                  sx={{
-                    width: "100%",
-                    mt: 5,
-                    bgcolor: "transparent",
-                    textAlign: "left",
-                  }}
-                  elevation={0}
-                >
-                  <img src={Logo} alt="logoimg" width="200px" />
-                </Paper>
-                <Paper
-                  sx={{
-                    height: "60px",
-                    bgcolor: "#EDEFF1",
-                    borderRadius: "10px",
-                  }}
-                  elevation={0}
-                >
-                  <Grid container>
-                    <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                      <Box
-                        sx={{
-                          borderRadius: "50px",
-                          width: "40px",
-                          height: "40px",
-                          mx: "auto",
-                          mt: 1.2,
-                        }}
-                      >
-                        <img
-                          src={AvtarImg}
-                          alt="Avtar"
-                          width="40px"
-                          height="auto"
-                        />
-                      </Box>
-                    </Grid>
-                    <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                      <Typography
-                        sx={{
-                          fontSize: "17px",
-                          mt: 2,
-                          textAlign: "left",
-                          ml: 2,
-                          fontWight: 500,
-                        }}
-                      >
-                        {user?.employeeName}
-                      </Typography>
-                    </Grid>
-                  </Grid>{" "}
-                </Paper>
-                <Paper
-                  sx={{
-                    bgcolor: "transparent",
-                    borderRadius: "0px",
-                    paddingTop: "30px",
-                  }}
-                  elevation={0}
-                >
-                  <Stack spacing={2}>
-                    <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                      <Paper sx={ActiveSidebarBox} elevation={0}>
-                        <Grid container mt={1}>
-                          <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                            <Typography
-                              sx={{
-                                color: "#2266D1",
-                                fontSize: "20px",
-                                mt: 0.5,
-                              }}
-                            >
-                              <MdSpaceDashboard />
-                            </Typography>
-                          </Grid>
-                          <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                            <Typography sx={SidebarActiveTextStyle}>
-                              Dashboard
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </Paper>
-                    </Link>
-                    <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                      <Paper sx={ActiveSidebarBox} elevation={0}>
-                        <Grid container mt={1}>
-                          <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                            <Typography
-                              sx={{
-                                color: "#2266D1",
-                                fontSize: "17px",
-                                mt: 0.8,
-                              }}
-                            >
-                              <BsFillCalendarEventFill />
-                            </Typography>
-                          </Grid>
-                          <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                            <Typography sx={SidebarActiveTextStyle}>
-                              Apply for Leave
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </Paper>
-                    </Link>
-                    <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                      <Paper sx={ActiveSidebarBox} elevation={0}>
-                        <Grid container mt={1}>
-                          <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                            <Typography
-                              sx={{
-                                color: "#2266D1",
-                                fontSize: "21px",
-                                mt: 0.5,
-                              }}
-                            >
-                              <MdMiscellaneousServices />
-                            </Typography>
-                          </Grid>
-                          <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                            <Typography sx={SidebarActiveTextStyle}>
-                              Request a Service
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </Paper>
-                    </Link>
-                    <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                      <Paper sx={UnactiveSidebarBox} elevation={0}>
-                        <Grid container mt={1}>
-                          <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                            <Typography
-                              sx={{ color: "gray", fontSize: "23px", mt: 0.5 }}
-                            >
-                              <BiRupee />
-                            </Typography>
-                          </Grid>
-                          <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                            <Typography sx={SidebarUnactiveTextStyle}>
-                              View Payrole
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </Paper>
-                    </Link>
-                  </Stack>
-                </Paper>
-              </Stack>
-            </Container>
         ) : null}
       </Paper>
     </Paper>
