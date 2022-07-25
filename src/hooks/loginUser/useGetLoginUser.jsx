@@ -5,7 +5,7 @@ import axios from "axios";
 export default function useGetLoginUser() {
   return useQuery(["login-Status"], async () => {
     return await axios.get(
-      "http://localhost:5000/employeeAuth/getLoggedInUser",
+      "auth/getLoggedInUser",
       {
         withcreditentials: true,
       }

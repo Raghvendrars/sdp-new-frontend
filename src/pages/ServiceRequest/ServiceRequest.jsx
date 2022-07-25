@@ -34,7 +34,7 @@ const ServiceRequest = () => {
     e.preventDefault();
     axios
       .post(
-        "http://localhost:5000/serviceRequest/add_request",
+        "serviceRequest/add_request",
         {
           requestType,
           requestName,

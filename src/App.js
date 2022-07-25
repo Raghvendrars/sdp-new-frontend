@@ -9,10 +9,13 @@ import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
 import axios from "axios";
 import Login from "./pages/LoginSignup/Login";
 
+
+axios.defaults.baseURL = 'http://localhost:5000/';
+
 function App() {
   useEffect(() => {
     axios
-      .get("http://localhost:5000/employeeAuth/getLoggedInUser")
+      .get("auth/getLoggedInUser")
       .then((res) => {
         console.log(res.data);
       });

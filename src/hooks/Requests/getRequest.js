@@ -1,5 +1,5 @@
 import react from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
 import axios from "axios";
 
 export default function GetRequests() {

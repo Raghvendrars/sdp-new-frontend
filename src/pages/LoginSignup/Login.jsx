@@ -15,6 +15,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AllRoleStatus from "../../Utils/AllRoleStatus";
 
 function Copyright(props) {
   return (
@@ -50,7 +51,7 @@ export default function SignIn() {
     console.log(data);
     axios
       .post(
-        "http://localhost:5000/auth/login",
+        "auth/login",
         {
           id,
           password,
@@ -58,8 +59,15 @@ export default function SignIn() {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res);
-        navigate("/dashboard");
+        AllRoleStatus.map((role) => {
+          if (res.data.code === role.code) {
+            if (role.code === 101) {
+              navigate("/dashboard");
+            } else if (role.code === 102) {
+              navigate("/attendance");
+            }
+          }
+        })
       })
       .catch((err) => {
         console.log(err);
@@ -69,7 +77,7 @@ export default function SignIn() {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/employeeAuth/getLoggedInUser", {
+        .get("http://localhost:5000/auth/login", {
           withCredentials: true,
         })
         .then((res) => {

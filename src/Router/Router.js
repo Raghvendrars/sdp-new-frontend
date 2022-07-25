@@ -18,7 +18,7 @@ const DashboardRouter = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/employeeAuth/getLoggedInUser", {
+        .get("auth/getLoggedInUser", {
           withCredentials: true,
         })
         .then((res) => {
