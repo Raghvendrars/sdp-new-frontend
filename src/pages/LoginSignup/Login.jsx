@@ -51,7 +51,7 @@ export default function SignIn() {
     console.log(data);
     axios
       .post(
-        "http://localhost:5000/auth/login",
+        "auth/login",
         {
           id,
           password,

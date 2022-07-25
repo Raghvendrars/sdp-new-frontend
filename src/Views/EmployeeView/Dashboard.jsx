@@ -15,7 +15,7 @@ const Dashboard = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/employeeAuth/getLoggedInUser", {
+        .get("auth/getLoggedInUser", {
           withCredentials: true,
         })
         .then((res) => {
@@ -90,12 +90,14 @@ const Dashboard = () => {
                     bgcolor: "#FFE7D9",
                     height: "280px",
                     borderRadius: "20px",
+                    display: "block",
                   }}
                   onClick={() => {
                     window.location.href = "/leaverequest/listleaverequests";
                   }}
                 >
                   <Typography sx={{ color: "#ff7c00" }}>
+                    <br />
                     <ImExit size={100} />
                   </Typography>
                   <br />
@@ -113,6 +115,7 @@ const Dashboard = () => {
                     bgcolor: "#D0F2FF",
                     height: "280px",
                     borderRadius: "20px",
+                    display: "block",
                   }}
                   onClick={() => {
                     window.location.href = "/attendance";
@@ -136,6 +139,7 @@ const Dashboard = () => {
                     bgcolor: "#FFF7CD",
                     height: "280px",
                     borderRadius: "20px",
+                    display: "block",
                   }}
                 >
                   <Typography sx={{ color: "#FFD600" }}>

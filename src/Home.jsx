@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/employeeAuth/getLoggedInUser", {
+        .get("http://localhost:5000/auth/getLoggedInUser", {
           withCredentials: true,
         })
         .then((res) => {
