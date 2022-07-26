@@ -21,7 +21,7 @@ const Attendance = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/attendance_employee/get_employee_attendence",
+        "attendance_employee/get_employee_attendence",
         {
           withCredentials: true,
         }
