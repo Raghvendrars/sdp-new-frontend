@@ -281,6 +281,27 @@ const Sidebar = () => {
                     </Grid>
                   </Paper>
                 </Link>
+                <Link
+                  to="/dashboard/register"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Paper sx={ActiveSidebarBox} elevation={0}>
+                    <Grid container mt={1}>
+                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                        <Typography
+                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                        >
+                          <HiOutlineUserAdd />
+                        </Typography>
+                      </Grid>
+                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                        <Typography sx={SidebarActiveTextStyle}>
+                          Add post
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Link>
               </Stack>
             </Paper>
           </Stack>

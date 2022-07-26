@@ -10,6 +10,7 @@ export default function Register() {
   const [experience, setexperience] = useState("");
   const [phone, setphone] = useState("");
   const [age, setage] = useState("");
+  const [employmentId, setemploymentId] = useState("");
   const [birthDate, setbirthDate] = useState("");
   const [joiningDate, setjoiningDate] = useState("");
   const [lastCompanyName, setlastCompanyName] = useState("");
@@ -28,13 +29,14 @@ export default function Register() {
     e.preventDefault();
     axios
       .post(
-        "/employee/add_employee",
+        "employee/add_employee",
         {
           firstName,
           lastName,
           email,
           experience,
           phone,
+          employmentId,
           birthDate,
           joiningDate,
           lastCompanyName,
@@ -74,6 +76,19 @@ export default function Register() {
         }}
       >
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+          <Grid container>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+              <TextField
+                id="outlined-search"
+                label="Employment ID"
+                size="large"
+                sx={{ width: "90%", minWidth: "80px" }}
+                onChange={(e) => {
+                  setemploymentId(e.target.value);
+                }}
+              />
+            </Grid>
+          </Grid>
           <Grid container sx={{ width: "90%", mx: "auto", mt: "3%" }}>
             <Grid item xs={12} sm={12} md={6} lg={6} xl={6} sx={{ pl: "1%%" }}>
               <TextField
