@@ -24,7 +24,7 @@ const LeaveRequest = () => {
     e.preventDefault();
     axios
       .post(
-        "http://localhost:5000/leaveRequest/add_leave_request",
+        "leaveRequest/add_leave_request",
         { leaveType, noOfDays, dateFrom, dateTo, reason, description },
         {
           withCredentials: true,

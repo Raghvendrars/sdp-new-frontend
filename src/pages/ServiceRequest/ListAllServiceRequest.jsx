@@ -21,7 +21,7 @@ const ListAllServiceRequest = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/serviceRequest/get_request", {
+        .get("serviceRequest/get_request", {
           withCredentials: true,
         })
         .then((res) => {

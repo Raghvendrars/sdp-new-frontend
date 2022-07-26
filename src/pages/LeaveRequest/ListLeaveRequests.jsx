@@ -20,7 +20,7 @@ const ListLeaveRequests = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/leaveRequest/get_leave_requests", {
+        .get("leaveRequest/get_leave_requests", {
           withCredentials: true,
         })
         .then((res) => {

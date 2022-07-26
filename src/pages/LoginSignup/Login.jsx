@@ -74,26 +74,6 @@ export default function SignIn() {
       });
   };
 
-  const Login = () => {
-    console.log("clicked");
-    try {
-      axios
-        .post("auth/login", {
-          withCredentials: true,
-        })
-        .then((res) => {
-          setUser(res.data);
-          if (res.data) {
-            navigate("/dashboard");
-          } else {
-            navigate("/login");
-          }
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <Paper
       sx={{
@@ -123,7 +103,7 @@ export default function SignIn() {
           </Typography>
           <Box
             component="form"
-            onClick={Login}
+            // onClick={Login}
             onSubmit={(e) => handleSubmit(e)}
             noValidate
             sx={{ mt: 1 }}

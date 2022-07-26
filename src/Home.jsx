@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:5000/auth/getLoggedInUser", {
+        .get("auth/getLoggedInUser", {
           withCredentials: true,
         })
         .then((res) => {
@@ -22,7 +22,7 @@ const Home = () => {
     try {
       axios
         .get(
-          "http://localhost:5000/attendance_employee/get_employee_attendence_byDate",
+          "attendance_employee/get_employee_attendence_byDate",
           {
             withCredentials: true,
           }
@@ -43,7 +43,7 @@ const Home = () => {
     try {
       await axios
         .post(
-          "http://localhost:5000/attendance_employee/add_employee_attendence",
+          "attendance_employee/add_employee_attendence",
           {
             entryTime: currentTime,
           },
@@ -66,7 +66,7 @@ const Home = () => {
     try {
       await axios
         .put(
-          `http://localhost:5000/attendance_employee/update_employee_attendence/${id}`,
+          `attendance_employee/update_employee_attendence/${id}`,
           {
             exitTime: currentTime,
           },

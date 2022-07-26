@@ -12,7 +12,7 @@ const Header = () => {
     try {
       axios
         .get(
-          "http://localhost:5000/attendance_employee/get_employee_attendence_byDate",
+          "attendance_employee/get_employee_attendence_byDate",
           {
             withCredentials: true,
           }
@@ -33,7 +33,7 @@ const Header = () => {
     try {
       await axios
         .post(
-          "http://localhost:5000/attendance_employee/add_employee_attendence",
+          "attendance_employee/add_employee_attendence",
           {
             entryTime: currentTime,
           },
@@ -56,7 +56,7 @@ const Header = () => {
     try {
       await axios
         .put(
-          `http://localhost:5000/attendance_employee/update_employee_attendence/${id}`,
+          `attendance_employee/update_employee_attendence/${id}`,
           {
             exitTime: currentTime,
           },
