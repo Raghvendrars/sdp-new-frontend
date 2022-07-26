@@ -97,8 +97,7 @@ const Dashboard = () => {
                   }}
                 >
                   <Typography sx={{ color: "#ff7c00" }}>
-                    <br />
-                    <ImExit size={100} />
+                    <ImExit size={80} />
                   </Typography>
                   <br />
                   <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
@@ -122,7 +121,7 @@ const Dashboard = () => {
                   }}
                 >
                   <Typography sx={{ color: "#00B8FF" }}>
-                    <HiOutlineUserGroup size={100} />
+                    <HiOutlineUserGroup size={80} />
                   </Typography>
                   <br />
                   <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
@@ -143,7 +142,7 @@ const Dashboard = () => {
                   }}
                 >
                   <Typography sx={{ color: "#FFD600" }}>
-                    <FaMoneyCheckAlt size={100} />
+                    <FaMoneyCheckAlt size={80} />
                   </Typography>
                   <br />
                   <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
