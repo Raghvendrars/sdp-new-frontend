@@ -12,6 +12,7 @@ import Attendance from "../pages/Attendance/Attendance";
 import RequestedModules from "../AdminPages/RequestedModules";
 import AddPayCTC from "../AdminPages/AddPayCTC";
 import Register from "../AdminPages/Register";
+import AddPost from "../AdminPages/AddPost";
 import { useNavigate } from "react-router-dom";
 
 const DashboardRouter = () => {
@@ -69,6 +70,7 @@ const DashboardRouter = () => {
         />
         <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
         <Route path="/dashboard/register" element={<Register />} />
+        <Route path="/dashboard/addpost" element={<AddPost />} />
       </Routes>
     </Paper>
   );

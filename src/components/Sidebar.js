@@ -20,6 +20,7 @@ import Logo from "./logo.png";
 import AvtarImg from "./avatar.jpg";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 import { HiOutlineUserAdd } from "react-icons/hi";
+import { MdOutlinePostAdd } from "react-icons/md";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState({});
@@ -282,7 +283,7 @@ const Sidebar = () => {
                   </Paper>
                 </Link>
                 <Link
-                  to="/dashboard/register"
+                  to="/dashboard/addpost"
                   style={{ textDecoration: "none" }}
                 >
                   <Paper sx={ActiveSidebarBox} elevation={0}>
@@ -291,7 +292,7 @@ const Sidebar = () => {
                         <Typography
                           sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
                         >
-                          <HiOutlineUserAdd />
+                          <MdOutlinePostAdd />
                         </Typography>
                       </Grid>
                       <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
