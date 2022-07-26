@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Paper, Grid, Button, Typography, Container } from "@mui/material";
 import axios from "axios";
@@ -9,7 +9,10 @@ import ListAllServiceRequest from "../pages/ServiceRequest/ListAllServiceRequest
 import ServiceRequest from "../pages/ServiceRequest/ServiceRequest";
 import Header from "../components/Header";
 import Attendance from "../pages/Attendance/Attendance";
-import {useNavigate} from 'react-router-dom'
+import RequestedModules from "../AdminPages/RequestedModules";
+import AddPayCTC from "../AdminPages/AddPayCTC";
+import Register from "../AdminPages/Register";
+import { useNavigate } from "react-router-dom";
 
 const DashboardRouter = () => {
   const [user, setUser] = useState({});
@@ -27,12 +30,11 @@ const DashboardRouter = () => {
     } catch (err) {
       console.log(err);
     }
-    if(!user){
-        navigate('/login')
-      }
+    if (!user) {
+      navigate("/login");
+    }
   }, []);
 
-  
   return (
     <Paper sx={{ bgcolor: "#f9fafb", height: "100vh" }}>
       <Grid container>
@@ -41,27 +43,33 @@ const DashboardRouter = () => {
         </Grid>
       </Grid>
 
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route
-            path="/leaverequest/addLeaveRequest"
-            element={<LeaveRequest />}
-          />
-          <Route
-            path="/leaverequest/listleaverequests"
-            element={<ListLeaveRequests />}
-          />
-          <Route
-            path="/servicerequest/addservicerequest"
-            element={<ServiceRequest />}
-          />
-          <Route
-            path="/servicerequest/listservicerequests"
-            element={<ListAllServiceRequest />}
-          />
-          <Route path="/attendance" element={<Attendance />} />
-          {/* <Route path="/login" element={<Login />} /> */}
-        </Routes>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/leaverequest/addLeaveRequest"
+          element={<LeaveRequest />}
+        />
+        <Route
+          path="/leaverequest/listleaverequests"
+          element={<ListLeaveRequests />}
+        />
+        <Route
+          path="/servicerequest/addservicerequest"
+          element={<ServiceRequest />}
+        />
+        <Route
+          path="/servicerequest/listservicerequests"
+          element={<ListAllServiceRequest />}
+        />
+        <Route path="/attendance" element={<Attendance />} />
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route
+          path="/dashboard/requestedModules"
+          element={<RequestedModules />}
+        />
+        <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
+        <Route path="/dashboard/register" element={<Register />} />
+      </Routes>
     </Paper>
   );
 };

@@ -67,17 +67,18 @@ export default function SignIn() {
               navigate("/attendance");
             }
           }
-        })
+        });
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  useEffect(() => {
+  const Login = () => {
+    console.log("clicked");
     try {
       axios
-        .get("http://localhost:5000/auth/login", {
+        .post("auth/login", {
           withCredentials: true,
         })
         .then((res) => {
@@ -91,7 +92,7 @@ export default function SignIn() {
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  };
 
   return (
     <Paper
@@ -122,6 +123,7 @@ export default function SignIn() {
           </Typography>
           <Box
             component="form"
+            onClick={Login}
             onSubmit={(e) => handleSubmit(e)}
             noValidate
             sx={{ mt: 1 }}

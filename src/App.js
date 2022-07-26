@@ -5,20 +5,18 @@ import { useState, useEffect } from "react";
 import { Paper, Grid, Button, Typography } from "@mui/material";
 import Sidebar from "./components/Sidebar";
 import DashboardRouter from "./Router/Router";
-import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Login from "./pages/LoginSignup/Login";
 
-
-axios.defaults.baseURL = 'http://localhost:5000/';
+axios.defaults.baseURL = "http://localhost:5000/";
+//axios.defaults.baseURL = "https://sdpportalbackend.herokuapp.com/";
 
 function App() {
   useEffect(() => {
-    axios
-      .get("auth/getLoggedInUser")
-      .then((res) => {
-        console.log(res.data);
-      });
+    axios.get("auth/getLoggedInUser").then((res) => {
+      console.log(res.data);
+    });
   }, []);
   return (
     <div className="App">
