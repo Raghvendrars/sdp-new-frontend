@@ -15,6 +15,8 @@ const Attendance = () => {
   const [attendanceData, setAttendanceData] = useState([]);
   const [getLoginUser, setgetLoginUser] = useState([]);
   const { data, error } = useGetLoginUser();
+  const [startTime,setstartTime]=useState()
+  const [endTime,setendTime]=useState()
 
   console.log(data);
 
@@ -52,7 +54,12 @@ const Attendance = () => {
               {attendanceData.length > 0 ? (
                 attendanceData.map((data, k) => {
                   let date = new Date(data.createdAt).toLocaleDateString();
-                  console.log(data.entryTime);
+                  var currentTime = data.entryTime,
+                   hours = currentTime.slice(0,2);
+                  var ecurrentTime = data.exitTime,
+                   ehours = ecurrentTime.slice(0,2);
+                  console.log("ddd",ehours-hours);
+                  
                   return (
                     <TableRow
                       key={k}
@@ -64,7 +71,7 @@ const Attendance = () => {
                       <TableCell align="right">{date}</TableCell>
                       <TableCell align="right">{data.entryTime}</TableCell>
                       <TableCell align="right">{data.exitTime}</TableCell>
-                      <TableCell align="right">8 Hrs</TableCell>
+                      <TableCell align="right">{ehours-hours}</TableCell>
                     </TableRow>
                   );
                 })

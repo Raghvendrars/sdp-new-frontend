@@ -5,6 +5,8 @@ import { Paper, Grid, Button, Typography } from "@mui/material";
 const Home = () => {
   const [datatwo, setDataTwo] = useState();
   const [datathree, setDataThree] = useState();
+  const [startTime,setstartTime]=useState()
+  const [endTime,setendTime]=useState()
 
   useEffect(() => {
     try {
@@ -38,7 +40,7 @@ const Home = () => {
 
   async function handleLogOn() {
     let currentTime = new Date().toLocaleTimeString();
-
+    setstartTime(currentTime)
     console.log(currentTime);
     try {
       await axios
@@ -63,6 +65,8 @@ const Home = () => {
   async function handleLogOff() {
     const id = datatwo._id;
     let currentTime = new Date().toLocaleTimeString();
+    setendTime(currentTime)
+    console.warn(currentTime);
     try {
       await axios
         .put(

@@ -62,6 +62,7 @@ export default function SignIn() {
         AllRoleStatus.map((role) => {
           if (res.data.code === role.code) {
             if (role.code === 101) {
+             
               navigate("/dashboard");
             } else if (role.code === 102) {
               navigate("/attendance");
