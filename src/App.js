@@ -14,8 +14,8 @@ axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
   useEffect(() => {
-    axios.get("auth/getLoggedInUser").then((res) => {
-      console.log(res.data);
+    axios.get("auth/getLoggedInUser", { withCredentials: true }).then((res) => {
+      console.log("->", res.data);
     });
   }, []);
   return (

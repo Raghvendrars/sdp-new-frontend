@@ -35,17 +35,14 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
 
   const [id, setIdOfUser] = useState("");
   const [password, setPasswordOfUser] = useState("");
 
   const handleSubmit = (e) => {
-    console.log(id, password);
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     console.log(data);
