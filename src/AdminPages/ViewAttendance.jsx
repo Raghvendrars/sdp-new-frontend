@@ -9,56 +9,63 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import AttendanceTable from "./AttendanceTable";
 export default function ViewAttendance() {
+  const [getEmployee, setGetEmployee] = useState([]);
+
+  useEffect(() => {
+    try {
+      axios
+        .get("employee/get_employees", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res?.data);
+          setGetEmployee(res?.data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+  console.log(getEmployee);
   return (
-    <Paper>
-      <Grid container>
+    <Paper sx={{ height: "100vh" }}>
+      <Grid container sx={{ width: "85%", mx: "auto" }}>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <Button>Update Attendance</Button>
         </Grid>
-      </Grid>
-      <Grid container>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
+
+        <Grid container sx={{ mx: "auto", mt: "3%" }}>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            xl={12}
+            sx={{ mx: "auto" }}
           >
-            <Typography>Accordion 1</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography>Accordion 2</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion disabled>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography>Disabled Accordion</Typography>
-          </AccordionSummary>
-        </Accordion>
+            {getEmployee.map((data) => {
+              console.log(data);
+              return (
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography>{data.firstName}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <AttendanceTable />
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })}
+          </Grid>
+        </Grid>
       </Grid>
     </Paper>
   );
