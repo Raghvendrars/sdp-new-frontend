@@ -13,44 +13,53 @@ axios.defaults.baseURL = "http://localhost:5000/";
 //axios.defaults.baseURL = "https://sdpportalbackend.herokuapp.com/";
 
 function App() {
+  const [user, setUser] = useState(true);
   useEffect(() => {
-    axios.get("auth/getLoggedInUser", { withCredentials: true }).then((res) => {
-      console.log("->", res.data);
-    });
+    axios
+      .get("auth/getLoggedInUser")
+      .then((res) => {
+        setUser(true);
+      })
+      .catch((err) => {
+        setUser(false);
+      });
   }, []);
   return (
     <div className="App">
       <Router>
-        <Paper sx={PaperStyle}>
-          <Grid container>
-            <Grid
-              item
-              xl={2}
-              lg={2}
-              md={3}
-              sm={12}
-              xs={12}
-              sx={{
-                position: {
-                  xl: "relative",
-                  lg: "relative",
-                  md: "relative",
-                  sm: "absolute",
-                  xs: "absolute",
-                },
-                zIndex: 10,
-              }}
-            >
-              <Sidebar />
+        {user ? (
+          <Paper sx={PaperStyle}>
+            <Grid container>
+              <Grid
+                item
+                xl={2}
+                lg={2}
+                md={3}
+                sm={12}
+                xs={12}
+                sx={{
+                  position: {
+                    xl: "relative",
+                    lg: "relative",
+                    md: "relative",
+                    sm: "absolute",
+                    xs: "absolute",
+                  },
+                  zIndex: 10,
+                }}
+              >
+                <Sidebar />
+              </Grid>
+              <Grid item xl={10} lg={10} md={9} sm={12} xs={12}>
+                <DashboardRouter />
+              </Grid>
             </Grid>
-            <Grid item xl={10} lg={10} md={9} sm={12} xs={12}>
-              <DashboardRouter />
-            </Grid>
-          </Grid>
-        </Paper>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-        </Routes>
+          </Paper>
+        ) : (
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        )}
       </Router>
     </div>
   );

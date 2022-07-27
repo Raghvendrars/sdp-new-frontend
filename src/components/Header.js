@@ -1,7 +1,7 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import axios from "axios";
-import { Paper, Grid, Button, Typography, Container, Box } from "@mui/material";
+import { Paper, Grid, Button, Typography} from "@mui/material";
 
 const Header = () => {
   const [datatwo, setDataTwo] = useState();
@@ -67,6 +67,11 @@ const Header = () => {
         .then((res) => {
           alert("Logged Out");
         });
+        await axios.get('auth/logout',{withCredentials:true}).then((response)=>{
+          alert("Logged Out");
+        }).catch((err)=>{
+          alert(err);
+        })
     } catch (err) {
       alert(err);
     }
