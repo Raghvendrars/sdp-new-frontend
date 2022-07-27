@@ -60,7 +60,7 @@ const ListAllServiceRequest = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {serviceRequests.map((index, data) => {
+            {serviceRequests.map((data, index) => {
               console.log(data);
               return (
                 <TableRow>
