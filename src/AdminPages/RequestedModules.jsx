@@ -52,15 +52,17 @@ export default function RequestedModules() {
                     <TableRow>
                       <TableCell>#</TableCell>
                       <TableCell>Name</TableCell>
-                      <TableCell>Leave Type</TableCell>
-                      <TableCell>No of Days</TableCell>
-                      <TableCell>From - To</TableCell>
-                      <TableCell>Reason</TableCell>
-                      <TableCell>Description</TableCell>
+                      <TableCell>requestType</TableCell>
+                      <TableCell>requestName</TableCell>
+                      <TableCell>approvalName</TableCell>
+                      <TableCell>requestDate</TableCell>
+                      <TableCell>subject</TableCell>
+                      <TableCell>description</TableCell>
+                      <TableCell>requestStatus</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {serviceRequests.map((index, data) => {
+                    {serviceRequests.map((data, index) => {
                       return (
                         <TableRow>
                           <TableCell>
@@ -78,17 +80,29 @@ export default function RequestedModules() {
                             }}
                           >
                             <Typography sx={{ width: "100%" }}>
-                              {data.dateFrom - data.dateFrom}
+                              {data.requestType}
                             </Typography>
                           </TableCell>
                           <TableCell sx={{ maxWidth: "300px" }}>
                             <Typography sx={{ whiteSpace: "initial" }}>
-                              {data.reason}
+                              {data.requestName}
                             </Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{data.approvalName}</Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{data.requestDate}</Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{data.subject}</Typography>
                           </TableCell>
                           <TableCell sx={{ maxWidth: "300px" }}>
                             <Typography>{data.description}</Typography>
                           </TableCell>
+                          {/* <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{data.requestStatus}</Typography>
+                          </TableCell> */}
 
                           <TableCell>
                             {" "}

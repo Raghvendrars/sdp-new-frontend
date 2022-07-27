@@ -12,6 +12,23 @@ import {
 } from "@mui/material";
 
 export default function AppliedLeaves() {
+  const [allLeaves, setAllLeaves] = useState([]);
+
+  useEffect(() => {
+    try {
+      axios
+        .get("leaveRequest/get_leave_requests", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res?.data);
+          setAllLeaves(res?.data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
   return (
     <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
       <Paper sx={{ width: "100%", mx: "auto" }} elevation={3}>
@@ -39,9 +56,9 @@ export default function AppliedLeaves() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {getLeaves &&
-                  getLeaves?.length > 0 &&
-                  getLeaves?.map((item, index) => {
+                {allLeaves &&
+                  allLeaves?.length > 0 &&
+                  allLeaves?.map((item, index) => {
                     return (
                       <TableRow>
                         <TableCell>
