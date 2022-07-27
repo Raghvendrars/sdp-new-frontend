@@ -13,6 +13,7 @@ import RequestedModules from "../AdminPages/RequestedModules";
 import AddPayCTC from "../AdminPages/AddPayCTC";
 import Register from "../AdminPages/Register";
 import AddPost from "../AdminPages/AddPost";
+import ViewAttendance from "../AdminPages/ViewAttendance";
 import { useNavigate } from "react-router-dom";
 
 const DashboardRouter = () => {
@@ -71,6 +72,7 @@ const DashboardRouter = () => {
         <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
         <Route path="/dashboard/register" element={<Register />} />
         <Route path="/dashboard/addpost" element={<AddPost />} />
+        <Route path="/dashboard/viewAttendance" element={<ViewAttendance />} />
       </Routes>
     </Paper>
   );

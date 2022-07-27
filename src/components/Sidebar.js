@@ -19,7 +19,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Logo from "./logo.png";
 import AvtarImg from "./avatar.jpg";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
-import { HiOutlineUserAdd } from "react-icons/hi";
+import { HiOutlineUserAdd, HiOutlineUserGroup } from "react-icons/hi";
 import { MdOutlinePostAdd } from "react-icons/md";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -255,7 +255,7 @@ const Sidebar = () => {
                       </Grid>
                       <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
                         <Typography sx={SidebarActiveTextStyle}>
-                          Add Payroll/CTC
+                          Payroll/CTC
                         </Typography>
                       </Grid>
                     </Grid>
@@ -298,6 +298,27 @@ const Sidebar = () => {
                       <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
                         <Typography sx={SidebarActiveTextStyle}>
                           Add post
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Link>
+                <Link
+                  to="/dashboard/viewAttendance"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Paper sx={ActiveSidebarBox} elevation={0}>
+                    <Grid container mt={1}>
+                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                        <Typography
+                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                        >
+                          <HiOutlineUserGroup />
+                        </Typography>
+                      </Grid>
+                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                        <Typography sx={SidebarActiveTextStyle}>
+                          Attendance/Holidays
                         </Typography>
                       </Grid>
                     </Grid>

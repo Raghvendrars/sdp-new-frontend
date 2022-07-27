@@ -56,55 +56,6 @@ const ServiceRequest = () => {
       });
   };
   return (
-    //<div>
-    //  {" "}
-    //  <form onSubmit={(e) => handleSubmit(e)}>
-    //    <input
-    //      type="text"
-    //      name="requestType"
-    //      onChange={(e) => {
-    //        setrequestType(e.target.value);
-    //      }}
-    //      placeholder="Enter your subject for leave"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="requestName"
-    //      onChange={(e) => setrequestName(e.target.value)}
-    //      placeholder="Enter no of days"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="approvalName"
-    //      onChange={(e) => setapprovalName(e.target.value)}
-    //      placeholder="Enter date from"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="requestDate"
-    //      onChange={(e) => setrequestDate(e.target.value)}
-    //      placeholder="Enter date to"
-    //    />
-    //    <input
-    //      type="text"
-    //      onChange={(e) => setsubject(e.target.value)}
-    //      name="subject"
-    //      placeholder="Enter subject"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="description"
-    //      onChange={(e) => setdescription(e.target.value)}
-    //      placeholder="Enter desc"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="requestStatus"
-    //      onChange={(e) => setrequestStatus(e.target.value)}
-    //    />
-    //    <button>submit</button>
-    //  </form>
-    //</div>
     <form onSubmit={(e) => handleSubmit(e)}>
       <Paper
         elevation={3}
