@@ -8,6 +8,7 @@ import ListAllHolidays from "../../pages/DashboardPages/ListAllHolidays";
 import { ImExit } from "react-icons/im";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { FaMoneyCheckAlt } from "react-icons/fa";
+import ShowHolidays from "../../AdminPages/ShowHolidays";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -158,7 +159,7 @@ const Dashboard = () => {
           <Grid container mt={1}>
             <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
               <Paper sx={{ width: "90%", padding: "0px", mx: "auto" }}>
-                <ListAllHolidays />
+                <ShowHolidays />
               </Paper>
             </Grid>
           </Grid>

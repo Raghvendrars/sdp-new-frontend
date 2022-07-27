@@ -12,6 +12,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AttendanceTable from "./AttendanceTable";
+import AddHoliday from "./AddHoliday";
+import ShowHolidays from "./ShowHolidays";
 export default function ViewAttendance() {
   const [getEmployee, setGetEmployee] = useState([]);
 
@@ -65,6 +67,14 @@ export default function ViewAttendance() {
               );
             })}
           </Grid>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+          <ShowHolidays />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+          <AddHoliday />
         </Grid>
       </Grid>
     </Paper>
