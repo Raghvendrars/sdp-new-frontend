@@ -16,6 +16,7 @@ import AddPost from "../AdminPages/AddPost";
 import ViewAttendance from "../AdminPages/ViewAttendance";
 import AppliedLeaves from "../AdminPages/AppliedLeaves";
 import { useNavigate } from "react-router-dom";
+import Holidays from "../AdminPages/ShowHolidays";
 
 const DashboardRouter = () => {
   const [user, setUser] = useState({});
@@ -76,6 +77,7 @@ const DashboardRouter = () => {
         <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
         <Route path="/dashboard/register" element={<Register />} />
         <Route path="/dashboard/addpost" element={<AddPost />} />
+        <Route path="/dashboard/viewHolidays" element={<Holidays />} />
         <Route path="/dashboard/viewAttendance" element={<ViewAttendance />} />
       </Routes>
     </Paper>

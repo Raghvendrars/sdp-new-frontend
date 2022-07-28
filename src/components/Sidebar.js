@@ -261,7 +261,7 @@ const Sidebar = () => {
                     </Paper>
                   </Link>
                   <Link
-                    to="/dashboard/holidays"
+                    to="/dashboard/viewHolidays"
                     style={{ textDecoration: "none", marginTop: "10px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
