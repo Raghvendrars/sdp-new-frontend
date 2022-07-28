@@ -32,7 +32,6 @@ export default function ShowHolidays() {
     }
   }, []);
 
-  console.log("--->", holidays);
 
   return (
     <Grid container>
