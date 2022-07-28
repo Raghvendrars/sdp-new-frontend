@@ -61,7 +61,7 @@ export default function SignIn() {
             if (role.code === 101) {
               navigate("/dashboard");
             } else if (role.code === 102) {
-              navigate("/admindashboard");
+              navigate("/dashboard");
             }
           }
         });

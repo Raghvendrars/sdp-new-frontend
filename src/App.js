@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {user ? (
+        {/* {user ? ( */}
           <Paper sx={PaperStyle}>
             <Grid container>
               <Grid
@@ -55,11 +55,12 @@ function App() {
               </Grid>
             </Grid>
           </Paper>
-        ) : (
-          <Routes>
+        {/* ) : (
+        
+        )} */}
+        <Routes>
             <Route path="/login" element={<Login />} />
           </Routes>
-        )}
       </Router>
     </div>
   );

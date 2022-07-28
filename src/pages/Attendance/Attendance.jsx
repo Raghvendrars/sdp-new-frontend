@@ -16,20 +16,25 @@ const Attendance = () => {
   const [getLoginUser, setgetLoginUser] = useState([]);
   const { data, error } = useGetLoginUser();
 
+  const [timerDataDay, setTimerDataDay] = useState();
+  const [timerDataHour, setTimerDataHour] = useState();
+  const [timerDataMinute, setTimerDataMinute] = useState();
+  const [timerDataSecond, setTimerDataSecond] = useState();
   console.log(data);
 
   useEffect(() => {
     axios
-      .get(
-        "attendance_employee/get_employee_attendence",
-        {
-          withCredentials: true,
-        }
-      )
+      .get("attendance_employee/get_employee_attendence", {
+        withCredentials: true,
+      })
       .then((res) => {
         setAttendanceData(res?.data);
       });
   }, []);
+
+  // sdnfh
+
+
 
   return (
     <Paper elevation={0} sx={{ bgcolor: "transparent" }}>

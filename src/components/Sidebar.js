@@ -21,6 +21,8 @@ import AvtarImg from "./avatar.jpg";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 import { HiOutlineUserAdd, HiOutlineUserGroup } from "react-icons/hi";
 import { MdOutlinePostAdd } from "react-icons/md";
+// import  AllRoleStatus from "../../Utils/AllRoleStatus";
+
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState({});
@@ -32,12 +34,14 @@ const Sidebar = () => {
           withCredentials: true,
         })
         .then((res) => {
-          setUser(res.data);
+          setUser(res?.data?.code);
         });
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   }, []);
+
+  console.log("user", user);
 
   return (
     <Paper
@@ -125,211 +129,218 @@ const Sidebar = () => {
               }}
               elevation={0}
             >
-              <Stack spacing={2}>
-                <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "20px", mt: 0.5 }}
-                        >
-                          <MdSpaceDashboard />
-                        </Typography>
+              {/* Admin Routes */}
+              {user === 102 ? (
+                <Stack>
+                  <Link
+                    to="/dashboard/requestedModules"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <MdMiscellaneousServices />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Requested Modules
+                          </Typography>
+                        </Grid>
                       </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Dashboard
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link
+                    to="/dashboard/requestedModules"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <ImExit />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Applied Leaves
+                          </Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "17px", mt: 0.8 }}
-                        >
-                          <BsFillCalendarEventFill />
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link
+                    to="/dashboard/addPayCTC"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <BiRupee />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Payroll/CTC
+                          </Typography>
+                        </Grid>
                       </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Apply for Leave
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link
+                    to="/dashboard/register"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <HiOutlineUserAdd />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Register
+                          </Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
-                        >
-                          <MdMiscellaneousServices />
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link
+                    to="/dashboard/addpost"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <MdOutlinePostAdd />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Add post
+                          </Typography>
+                        </Grid>
                       </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Request a Service
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link
+                    to="/dashboard/viewAttendance"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <HiOutlineUserGroup />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Attendance/Holidays
+                          </Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                  <Paper sx={UnactiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "gray", fontSize: "23px", mt: 0.5 }}
-                        >
-                          <BiRupee />
-                        </Typography>
+                    </Paper>
+                  </Link>
+                </Stack>
+              ) : (
+                <Stack spacing={2}>
+                  <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "20px", mt: 0.5 }}
+                          >
+                            <MdSpaceDashboard />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Dashboard
+                          </Typography>
+                        </Grid>
                       </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarUnactiveTextStyle}>
-                          View Payrole
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "17px", mt: 0.8 }}
+                          >
+                            <BsFillCalendarEventFill />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Apply for Leave
+                          </Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link
-                  to="/dashboard/requestedModules"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
-                        >
-                          <MdMiscellaneousServices />
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <MdMiscellaneousServices />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Request a Service
+                          </Typography>
+                        </Grid>
                       </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Requested Modules
-                        </Typography>
+                    </Paper>
+                  </Link>
+                  <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                    <Paper sx={UnactiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "gray", fontSize: "23px", mt: 0.5 }}
+                          >
+                            <BiRupee />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarUnactiveTextStyle}>
+                            View Payrole
+                          </Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link
-                  to="/dashboard/requestedModules"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
-                        >
-                          <ImExit />
-                        </Typography>
-                      </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Applied Leaves
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link
-                  to="/dashboard/addPayCTC"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
-                        >
-                          <BiRupee />
-                        </Typography>
-                      </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Payroll/CTC
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link
-                  to="/dashboard/register"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
-                        >
-                          <HiOutlineUserAdd />
-                        </Typography>
-                      </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Register
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link
-                  to="/dashboard/addpost"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
-                        >
-                          <MdOutlinePostAdd />
-                        </Typography>
-                      </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Add post
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-                <Link
-                  to="/dashboard/viewAttendance"
-                  style={{ textDecoration: "none" }}
-                >
-                  <Paper sx={ActiveSidebarBox} elevation={0}>
-                    <Grid container mt={1}>
-                      <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
-                        <Typography
-                          sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
-                        >
-                          <HiOutlineUserGroup />
-                        </Typography>
-                      </Grid>
-                      <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
-                        <Typography sx={SidebarActiveTextStyle}>
-                          Attendance/Holidays
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Paper>
-                </Link>
-              </Stack>
+                    </Paper>
+                  </Link>
+                </Stack>
+              )}
             </Paper>
           </Stack>
         </Container>
       </Paper>
 
+      {/* For mobile  */}
       <Paper
         elevation={0}
         sx={{
