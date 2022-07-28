@@ -68,8 +68,11 @@ const DashboardRouter = () => {
         />
         <Route path="/attendance" element={<Attendance />} />
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path="/dashboard/requestedModules" element={<AppliedLeaves />} />
-        <Route path="/dashboard/appliedLeaves" element={<RequestedModules />} />
+        <Route
+          path="/dashboard/requestedModules"
+          element={<RequestedModules />}
+        />
+        <Route path="/dashboard/appliedLeaves" element={<AppliedLeaves />} />
         <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
         <Route path="/dashboard/register" element={<Register />} />
         <Route path="/dashboard/addpost" element={<AddPost />} />

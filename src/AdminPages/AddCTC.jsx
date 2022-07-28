@@ -57,6 +57,7 @@ export default function AddCTC() {
             xl: "70%",
           },
           mx: "auto",
+          bgcolor: "red",
         }}
       >
         <Grid

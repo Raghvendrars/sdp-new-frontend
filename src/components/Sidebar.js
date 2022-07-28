@@ -134,7 +134,7 @@ const Sidebar = () => {
                 <Stack>
                   <Link
                     to="/dashboard/requestedModules"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -154,8 +154,8 @@ const Sidebar = () => {
                     </Paper>
                   </Link>
                   <Link
-                    to="/dashboard/requestedModules"
-                    style={{ textDecoration: "none" ,marginTop: "20px"}}
+                    to="/dashboard/appliedleaves"
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -176,7 +176,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/addPayCTC"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -197,7 +197,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/register"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -218,7 +218,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/addpost"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -239,7 +239,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/viewAttendance"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
