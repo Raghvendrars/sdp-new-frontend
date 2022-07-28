@@ -24,7 +24,7 @@ const ListLeaveRequests = () => {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res?.data);
+          console.log("ndi",res?.data);
           setLeaveRequests(res?.data);
         });
     } catch (err) {

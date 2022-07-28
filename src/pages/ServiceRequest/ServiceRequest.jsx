@@ -25,12 +25,12 @@ const ServiceRequest = () => {
   const [requestType, setrequestType] = useState("");
   const [requestName, setrequestName] = useState("");
   const [approvalName, setapprovalName] = useState("");
-  const [requestDate, setrequestDate] = useState("");
+  const [requestDate, setrequestDate] = useState();
   const [subject, setsubject] = useState("");
-  const [description, setdescription] = useState("");
-  const [requestStatus, setrequestStatus] = useState("");
+
 
   const handleSubmit = (e) => {
+    setrequestDate(new Date());
     e.preventDefault();
     axios
       .post(
@@ -41,8 +41,6 @@ const ServiceRequest = () => {
           approvalName,
           requestDate,
           subject,
-          description,
-          requestStatus,
         },
         {
           withCredentials: true,
@@ -61,60 +59,11 @@ const ServiceRequest = () => {
         elevation={3}
         sx={{
           minHeight: "400px",
-          minHeight: "500px",
           width: "85%",
           mt: "10%",
           mx: "auto",
         }}
       >
-        <Grid container sx={{ pt: "2%" }}>
-          <Grid item xl={2} lg={3} md={4} sm={5} xs={4}>
-            <Typography
-              sx={{
-                fontSize: "23px",
-                textAlign: "center",
-                mt: "8%",
-
-                mr: "2%",
-              }}
-            >
-              Employee Id
-            </Typography>
-          </Grid>
-          <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-            <TextField
-              required
-              id="filled-required"
-              variant="filled"
-              placeholder="No. of Days"
-              sx={{ width: "95%" }}
-            />
-          </Grid>
-        </Grid>
-        <Grid container sx={{ mt: "2%" }}>
-          <Grid item xl={2} lg={3} md={4} sm={5} xs={4}>
-            <Typography
-              sx={{
-                fontSize: "23px",
-                textAlign: "center",
-                mt: "8%",
-
-                mr: "2%",
-              }}
-            >
-              Name
-            </Typography>
-          </Grid>
-          <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-            <TextField
-              required
-              id="filled-required"
-              variant="filled"
-              placeholder="No. of Days"
-              sx={{ width: "95%" }}
-            />
-          </Grid>
-        </Grid>
         <Grid container sx={{ mt: "2%" }}>
           <Grid item xl={2} lg={3} md={4} sm={5} xs={4}>
             <Typography
@@ -157,16 +106,23 @@ const ServiceRequest = () => {
             </Typography>
           </Grid>
           <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-            <TextField
-              required
-              id="filled-required"
-              variant="filled"
-              placeholder="No. of Days"
-              sx={{ width: "95%" }}
-              onChange={(e) => {
-                setapprovalName(e.target.value);
-              }}
-            />
+            <Box>
+              <TextField
+                label="Approval From"
+                id="filled-required"
+                variant="filled"
+                select
+                fullWidth
+                sx={{ width: "95%" }}
+                onChange={(e) => {
+                  setapprovalName(e.target.value);
+                }}
+              >
+                <MenuItem value="Admin">Admin</MenuItem>
+                <MenuItem value="Hr">HR</MenuItem>
+                <MenuItem value="Project Manager">Project Manager</MenuItem>
+              </TextField>
+            </Box>
           </Grid>
         </Grid>
         <Grid container sx={{ mt: "2%" }}>
@@ -222,20 +178,10 @@ const ServiceRequest = () => {
                 onChange={(e) => {
                   setrequestType(e.target.value);
                 }}
-
-                //  value={request}
-                //  onChange={handleChangeRequest}
-                //  onChange={(e) => {
-                //   setrequestDetail({
-                //     ...requestDetail,
-                //     type: e.target.value,
-                //   });
-                // }}
-                //  helperText={request ? "selected" : "open this select menu"}
               >
-                <MenuItem value="H">High</MenuItem>
-                <MenuItem value="M">medium</MenuItem>
-                <MenuItem value="L">Low</MenuItem>
+                <MenuItem value="High">High</MenuItem>
+                <MenuItem value="Medium">medium</MenuItem>
+                <MenuItem value="Low">Low</MenuItem>
               </TextField>
             </Box>
           </Grid>

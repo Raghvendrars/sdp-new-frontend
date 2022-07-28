@@ -18,18 +18,18 @@ export default function ShowHolidays() {
   console.log(holidays);
 
   useEffect(() => {
-    try {
-      axios
-        .get("holidays/getAllHolidays", {
-          withCredentials: true,
-        })
-        .then((res) => {
-          console.log(res?.data);
-          setHolidays(res?.data);
-        });
-    } catch (err) {
-      console.log(err);
-    }
+    // try {
+    //   axios
+    //     .get("holidays/getAllHolidays", {
+    //       withCredentials: true,
+    //     })
+    //     .then((res) => {
+    //       console.log(res?.data);
+    //       setHolidays(res?.data);
+    //     });
+    // } catch (err) {
+    //   console.log(err);
+    // }
   }, []);
 
 
@@ -45,7 +45,7 @@ export default function ShowHolidays() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {holidays.map((data, index) => {
+            {holidays?.map((data, index) => {
               console.log(data);
               return (
                 <TableRow>

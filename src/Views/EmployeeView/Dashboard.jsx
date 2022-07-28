@@ -9,6 +9,7 @@ import { ImExit } from "react-icons/im";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { FaMoneyCheckAlt } from "react-icons/fa";
 import ShowHolidays from "../../AdminPages/ShowHolidays";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -60,75 +61,71 @@ const Dashboard = () => {
           <Paper sx={{ bgcolor: "transparent" }} elevation={0}>
             <Grid container>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Button
-                  varient="contained"
-                  sx={{
-                    width: "80%",
-                    mx: "auto",
-                    bgcolor: "#D1E9FC",
-                    height: "280px",
-                    borderRadius: "20px",
-                    display: "block",
-                  }}
-                  onClick={() => {
-                    window.location.href =
-                      "/servicerequest/listservicerequests";
-                  }}
-                >
-                  <MdMiscellaneousServices size={100} />
-                  <br />
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                    Request Module
-                  </Typography>
-                </Button>
+                <Link to={"/servicerequest/listservicerequests"}>
+                  <Button
+                    varient="contained"
+                    sx={{
+                      width: "80%",
+                      mx: "auto",
+                      bgcolor: "#D1E9FC",
+                      height: "280px",
+                      borderRadius: "20px",
+                      display: "block",
+                    }}
+                  >
+                    <MdMiscellaneousServices size={100} />
+                    <br />
+                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                      Service Request
+                    </Typography>
+                  </Button>
+                </Link>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Button
-                  varient="contained"
-                  sx={{
-                    width: "80%",
-                    mx: "auto",
-                    bgcolor: "#FFE7D9",
-                    height: "280px",
-                    borderRadius: "20px",
-                    display: "block",
-                  }}
-                  onClick={() => {
-                    window.location.href = "/leaverequest/listleaverequests";
-                  }}
-                >
-                  <Typography sx={{ color: "#ff7c00" }}>
-                    <ImExit size={80} />
-                  </Typography>
-                  <br />
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                    Applied Leaves
-                  </Typography>
-                </Button>
+                <Link to={"/leaverequest/listleaverequests"}>
+                  <Button
+                    varient="contained"
+                    sx={{
+                      width: "80%",
+                      mx: "auto",
+                      bgcolor: "#FFE7D9",
+                      height: "280px",
+                      borderRadius: "20px",
+                      display: "block",
+                    }}
+                  >
+                    <Typography sx={{ color: "#ff7c00" }}>
+                      <ImExit size={80} />
+                    </Typography>
+                    <br />
+                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                      Applied Leaves
+                    </Typography>
+                  </Button>
+                </Link>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Button
-                  varient="contained"
-                  sx={{
-                    width: "80%",
-                    mx: "auto",
-                    bgcolor: "#D0F2FF",
-                    height: "280px",
-                    borderRadius: "20px",
-                    display: "block",
-                  }}
-                  onClick={() => {
-                    window.location.href = "/attendance";
-                  }}
-                >
-                  <Typography sx={{ color: "#00B8FF" }}>
-                    <HiOutlineUserGroup size={80} />
-                  </Typography>
-                  <br />
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                    Attendance
-                  </Typography>
-                </Button>
+                <Link to={"/attendance"}>
+                  <Button
+                    varient="contained"
+                    sx={{
+                      width: "80%",
+                      mx: "auto",
+                      bgcolor: "#D0F2FF",
+                      height: "280px",
+                      borderRadius: "20px",
+                      display: "block",
+                    }}
+                  >
+                    <Typography sx={{ color: "#00B8FF" }}>
+                      <HiOutlineUserGroup size={80} />
+                    </Typography>
+                    <br />
+                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                      Attendance
+                    </Typography>
+                  </Button>
+                </Link>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
                 <Button

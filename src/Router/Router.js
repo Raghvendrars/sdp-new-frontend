@@ -17,6 +17,7 @@ import ViewAttendance from "../AdminPages/ViewAttendance";
 import AppliedLeaves from "../AdminPages/AppliedLeaves";
 import { useNavigate } from "react-router-dom";
 import Holidays from "../AdminPages/ShowHolidays";
+import Payrole from "../pages/Payrole/Payrole";
 
 const DashboardRouter = () => {
   const [user, setUser] = useState({});
@@ -45,11 +46,12 @@ const DashboardRouter = () => {
     <Paper sx={{ bgcolor: "#f9fafb", height: "100vh" }}>
       <Grid container>
         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-          {user.role === "Admin" && user.role === "HR" ? <Header /> : null}
+          {user.role === "Admin" && user.role === "HR" ? null : <Header />}
         </Grid>
       </Grid>
 
       <Routes>
+        <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/leaverequest/addLeaveRequest"
@@ -59,6 +61,7 @@ const DashboardRouter = () => {
           path="/leaverequest/listleaverequests"
           element={<ListLeaveRequests />}
         />
+        <Route path="/payrole" element={<Payrole />} />
         <Route
           path="/servicerequest/addservicerequest"
           element={<ServiceRequest />}
@@ -73,6 +76,7 @@ const DashboardRouter = () => {
           path="/dashboard/requestedModules"
           element={<RequestedModules />}
         />
+
         <Route path="/dashboard/appliedLeaves" element={<AppliedLeaves />} />
         <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
         <Route path="/dashboard/register" element={<Register />} />

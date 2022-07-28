@@ -20,6 +20,7 @@ const LeaveRequest = () => {
   const [reason, setReason] = useState("");
   const [description, setDescription] = useState("");
   const [value, onChange] = useState([new Date(), new Date()]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -40,49 +41,6 @@ const LeaveRequest = () => {
 
   console.log(leaveType);
   return (
-    //<div>
-    //  <form onSubmit={(e) => handleSubmit(e)}>
-    //    <input
-    //      type="text"
-    //      name="leaveType"
-    //      onChange={(e) => {
-    //        setLeaveType(e.target.value);
-    //      }}
-    //      placeholder="Enter your reason for leave"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="noOfDays"
-    //      onChange={(e) => setNoOfDays(e.target.value)}
-    //      placeholder="Enter no of days"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="dateFrom"
-    //      onChange={(e) => setDateFrom(e.target.value)}
-    //      placeholder="Enter date from"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="dateTo"
-    //      onChange={(e) => setDateTo(e.target.value)}
-    //      placeholder="Enter date to"
-    //    />
-    //    <input
-    //      type="text"
-    //      onChange={(e) => setReason(e.target.value)}
-    //      name="reason"
-    //      placeholder="Enter reason"
-    //    />
-    //    <input
-    //      type="text"
-    //      name="description"
-    //      onChange={(e) => setDescription(e.target.value)}
-    //      placeholder="Enter desc"
-    //    />
-    //    <button>submit</button>
-    //  </form>
-    //</div>
     <Paper
       elevation={3}
       sx={{ minHeight: "400px", width: "85%", mx: "auto", mt: "10%" }}
@@ -233,7 +191,7 @@ const LeaveRequest = () => {
                 sx={{ width: "100%", textAlign: "center" }}
               >
                 <Button
-                  // onClick={handelsubmit}
+                  onClick={handleSubmit}
                   variant="contained"
                   sx={{
                     borderRadius: 28,

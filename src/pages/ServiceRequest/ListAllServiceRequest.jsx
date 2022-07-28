@@ -40,35 +40,29 @@ const ListAllServiceRequest = () => {
         </Button>
       </Link>
       <h1>List All Service Request</h1>
-      {/*{serviceRequests.length > 0 ? (*/}
-      <>
-        {/*{serviceRequests.map((data) => (
-            <div>
-              <div>{data.requestType}</div>
-            </div>
-          ))}*/}
         <Table sx={{ background: "#eceff1" }}>
           <TableHead>
             <TableRow>
               <TableCell>#</TableCell>
               <TableCell>Name</TableCell>
-              <TableCell>Request Name</TableCell>
-              <TableCell>Approval From</TableCell>
               <TableCell>Subject</TableCell>
-              <TableCell>Reason</TableCell>
               <TableCell>Request Type</TableCell>
+              <TableCell>Requested From</TableCell>
+              <TableCell>Requested Date</TableCell>
+              <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {serviceRequests.map((data, index) => {
-              console.log(data);
+            {serviceRequests?.map((data, index) => {
+              let date = new Date(data.createdAt).toLocaleDateString();
+              console.log(data,date);
               return (
                 <TableRow>
                   <TableCell>
                     <Typography>{index + 1}</Typography>
                   </TableCell>
                   <TableCell sx={{ maxWidth: "300px" }}>
-                    <Typography>{data.name}</Typography>
+                    <Typography>{data.requestName}</Typography>
                   </TableCell>
                   <TableCell
                     sx={{
@@ -79,25 +73,24 @@ const ListAllServiceRequest = () => {
                     }}
                   >
                     <Typography sx={{ width: "100%" }}>
-                      {data.dateFrom - data.dateFrom}
+                      {data.subject}
                     </Typography>
                   </TableCell>
                   <TableCell sx={{ maxWidth: "300px" }}>
                     <Typography sx={{ whiteSpace: "initial" }}>
-                      {data.reason}
+                      {data.requestType}
                     </Typography>
                   </TableCell>
+                  <TableCell>{data.approvalName}</TableCell>
                   <TableCell sx={{ maxWidth: "300px" }}>
-                    <Typography>{data.description}</Typography>
+                    <Typography>{date}</Typography>
                   </TableCell>
+                  <TableCell>{data.requestStatus?(<>Approved</>):(<>Pending</>)}</TableCell>
                 </TableRow>
               );
             })}
           </TableBody>
         </Table>
-      </>
-      {/*) : (*/}
-      {/*<h4>no data found</h4>*/}
     </div>
   );
 };

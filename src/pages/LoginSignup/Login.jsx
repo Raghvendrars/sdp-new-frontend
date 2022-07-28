@@ -35,17 +35,17 @@ function Copyright(props) {
   );
 }
 
-
 export default function SignIn() {
   const navigate = useNavigate();
 
   const [id, setIdOfUser] = useState("");
   const [password, setPasswordOfUser] = useState("");
 
+  console.log(id, password);
+
   const handleSubmit = (e) => {
+    console.log("handleSubmit");
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    console.log(data);
     axios
       .post(
         "auth/login",
@@ -56,15 +56,12 @@ export default function SignIn() {
         { withCredentials: true }
       )
       .then((res) => {
-        AllRoleStatus.map((role) => {
-          if (res.data.code === role.code) {
-            if (role.code === 101) {
-              navigate("/dashboard");
-            } else if (role.code === 102) {
-              navigate("/dashboard");
-            }
-          }
-        });
+        console.log(res);
+        if (res.data) {
+          navigate("/");
+        } else {
+          alert("Invalid Credentials");
+        }
       })
       .catch((err) => {
         console.log(err);

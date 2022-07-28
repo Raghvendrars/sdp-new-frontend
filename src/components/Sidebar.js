@@ -45,6 +45,14 @@ const Sidebar = () => {
 
   console.log("user", user);
 
+  async function logout() {
+    try {
+      await axios.get("auth/logout", { withCredentials: true });
+      window.location.reload();
+    } catch (err) {
+      alert(err);
+    }
+  }
   return (
     <Paper
       sx={{
@@ -240,7 +248,7 @@ const Sidebar = () => {
                     </Paper>
                   </Link>
                   <Link
-                    to="/dashboard/viewAttendance"
+                    to="/attendance"
                     style={{ textDecoration: "none", marginTop: "10px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
@@ -302,7 +310,7 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
-                  <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Link to="/leaverequest/listleaverequests" style={{ textDecoration: "none" }}>
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
@@ -320,7 +328,7 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
-                  <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Link to="/servicerequest/listservicerequests" style={{ textDecoration: "none" }}>
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
@@ -338,7 +346,7 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
-                  <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <Link to="/payrole" style={{ textDecoration: "none" }}>
                     <Paper sx={UnactiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
@@ -358,6 +366,21 @@ const Sidebar = () => {
                   </Link>
                 </Stack>
               )}
+
+              <Paper sx={{cursor:"pointer"}} elevation={0} onClick={logout}>
+                <Grid container mt={1}>
+                  <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                    <Typography
+                      sx={{ color: "#2266D1", fontSize: "20px", mt: 0.5 }}
+                    >
+                      <MdSpaceDashboard />
+                    </Typography>
+                  </Grid>
+                  <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                    <Typography sx={SidebarActiveTextStyle}>Logout</Typography>
+                  </Grid>
+                </Grid>
+              </Paper>
             </Paper>
           </Stack>
         </Container>
