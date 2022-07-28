@@ -8,7 +8,7 @@ import {
   Typography,
   AccordionDetails,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AttendanceTable from "./AttendanceTable";
@@ -54,7 +54,7 @@ export default function ViewAttendance() {
               return (
                 <Accordion>
                   <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
+                    // expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >

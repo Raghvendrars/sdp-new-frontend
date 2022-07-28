@@ -16,6 +16,7 @@ import AddPost from "../AdminPages/AddPost";
 import ViewAttendance from "../AdminPages/ViewAttendance";
 import AppliedLeaves from "../AdminPages/AppliedLeaves";
 import { useNavigate } from "react-router-dom";
+import AuthPayroll from "../Views/EmployeeView/AuthPayroll";
 
 const DashboardRouter = () => {
   const [user, setUser] = useState({});
@@ -67,6 +68,7 @@ const DashboardRouter = () => {
           element={<ListAllServiceRequest />}
         />
         <Route path="/attendance" element={<Attendance />} />
+        <Route path="/auth-payroll" element={<AuthPayroll />} />
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/dashboard/requestedModules" element={<AppliedLeaves />} />
         <Route path="/dashboard/appliedLeaves" element={<RequestedModules />} />

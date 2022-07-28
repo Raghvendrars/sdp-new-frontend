@@ -46,7 +46,7 @@ export default function ShowHolidays() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {holidays.map((data, index) => {
+            {/* {holidays.map((data, index) => {
               console.log(data);
               return (
                 <TableRow>
@@ -61,7 +61,7 @@ export default function ShowHolidays() {
                   </TableCell>
                 </TableRow>
               );
-            })}
+            })} */}
           </TableBody>
         </Table>
       </Grid>

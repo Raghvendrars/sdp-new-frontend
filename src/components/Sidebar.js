@@ -35,6 +35,7 @@ const Sidebar = () => {
         })
         .then((res) => {
           setUser(res?.data);
+          console.log(res?.data);
         });
     } catch (err) {
       alert(err);
@@ -134,7 +135,7 @@ const Sidebar = () => {
                 <Stack>
                   <Link
                     to="/dashboard/requestedModules"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -155,7 +156,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/requestedModules"
-                    style={{ textDecoration: "none" ,marginTop: "20px"}}
+                    style={{ textDecoration: "none" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -176,7 +177,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/addPayCTC"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -189,7 +190,7 @@ const Sidebar = () => {
                         </Grid>
                         <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
                           <Typography sx={SidebarActiveTextStyle}>
-                            Payroll/CTC
+                            Payroll/CTC 
                           </Typography>
                         </Grid>
                       </Grid>
@@ -197,7 +198,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/register"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -218,7 +219,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/addpost"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -239,7 +240,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/viewAttendance"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -258,6 +259,7 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
+                  
                 </Stack>
               ) : (
                 <Stack spacing={2}>
@@ -279,6 +281,7 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
+
                   <Link to="/dashboard" style={{ textDecoration: "none" }}>
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -292,6 +295,28 @@ const Sidebar = () => {
                         <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
                           <Typography sx={SidebarActiveTextStyle}>
                             Apply for Leave
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Paper>
+                  </Link>
+                  <Link to="/auth-payroll" style={{ textDecoration: "none" }}>
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{
+                              color: "#2266D1",
+                              fontSize: "20px",
+                              mt: 0.5,
+                            }}
+                          >
+                            <MdSpaceDashboard />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Auth
                           </Typography>
                         </Grid>
                       </Grid>
@@ -449,6 +474,28 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
+                  <Link to="/auth-payroll" style={{ textDecoration: "none" }}>
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{
+                              color: "#2266D1",
+                              fontSize: "20px",
+                              mt: 0.5,
+                            }}
+                          >
+                            <MdSpaceDashboard />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Auth
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Paper>
+                  </Link>
                   <Link to="/dashboard" style={{ textDecoration: "none" }}>
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -487,7 +534,7 @@ const Sidebar = () => {
                         </Grid>
                         <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
                           <Typography sx={SidebarActiveTextStyle}>
-                            Request a Service
+                            Request a Services
                           </Typography>
                         </Grid>
                       </Grid>
