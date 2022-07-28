@@ -9,21 +9,23 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Timer from "../components/Timer";
 
-const AttendanceTable = () => {
+const AttendanceTable = (props) => {
+  console.log("Props",props);
+  let userId = props.userId;
   const [attendanceData, setAttendanceData] = useState([]);
- 
 
   useEffect(() => {
     axios
-      .get("attendance_employee/get_employee_attendence", {
+      .get(`attendance_admin/get_employee_attendance_byId/${userId}`, {
         withCredentials: true,
       })
       .then((res) => {
+        console.log("siduhguffy",res?.data);
         setAttendanceData(res?.data);
       });
   }, []);
-
 
   return (
     <Paper elevation={0} sx={{ bgcolor: "transparent" }}>
@@ -45,8 +47,15 @@ const AttendanceTable = () => {
             <TableBody>
               {attendanceData.length > 0 ? (
                 attendanceData.map((data, k) => {
-                  let date = new Date(data.createdAt).toLocaleDateString();
                   console.log(data.entryTime);
+                  let etime = data.entryTime;
+                  let exTime = data.exitTime;
+                  let etimew = new Date(etime).toLocaleTimeString();
+                  let etimew2 = new Date(exTime).toLocaleTimeString();
+
+                  let newdata = new Date(data.entryTime).getTime();
+                  let newdata2 = new Date(data.exitTime).getTime();
+                  let date = new Date(data.entryTime).toLocaleDateString();
                   return (
                     <TableRow
                       key={k}
@@ -56,9 +65,11 @@ const AttendanceTable = () => {
                         {k + 1}
                       </TableCell>
                       <TableCell align="right">{date}</TableCell>
-                      <TableCell align="right">{data.entryTime}</TableCell>
-                      <TableCell align="right">{data.exitTime}</TableCell>
-                      <TableCell align="right">8 Hrs</TableCell>
+                      <TableCell align="right">{etimew}</TableCell>
+                      <TableCell align="right">{etimew2}</TableCell>
+                      <TableCell align="right">
+                        <Timer entryTime={newdata} exitTime={newdata2} />
+                      </TableCell>
                     </TableRow>
                   );
                 })

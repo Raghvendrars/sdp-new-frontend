@@ -5,8 +5,8 @@ import {
   Button,
   Accordion,
   AccordionSummary,
-  Typography,
   AccordionDetails,
+  Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useEffect, useState } from "react";
@@ -20,7 +20,7 @@ export default function ViewAttendance() {
   useEffect(() => {
     try {
       axios
-        .get("employee/get_employees", {
+        .get("addEmployeeAuth/get_all_employee_auth", {
           withCredentials: true,
         })
         .then((res) => {
@@ -58,10 +58,10 @@ export default function ViewAttendance() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>{data.firstName}</Typography>
+                    <Typography>{data.employeeName}</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <AttendanceTable />
+                    <AttendanceTable userId={data._id} />
                   </AccordionDetails>
                 </Accordion>
               );
@@ -69,14 +69,14 @@ export default function ViewAttendance() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container>
+      {/* <Grid container>
         <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <ShowHolidays />
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <AddHoliday />
         </Grid>
-      </Grid>
+      </Grid> */}
     </Paper>
   );
 }

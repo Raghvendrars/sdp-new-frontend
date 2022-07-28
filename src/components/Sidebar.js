@@ -21,6 +21,8 @@ import AvtarImg from "./avatar.jpg";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 import { HiOutlineUserAdd, HiOutlineUserGroup } from "react-icons/hi";
 import { MdOutlinePostAdd } from "react-icons/md";
+
+import AddHoliday from "../AdminPages/AddHoliday";
 // import  AllRoleStatus from "../../Utils/AllRoleStatus";
 
 const Sidebar = () => {
@@ -134,7 +136,7 @@ const Sidebar = () => {
                 <Stack>
                   <Link
                     to="/dashboard/requestedModules"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -154,8 +156,8 @@ const Sidebar = () => {
                     </Paper>
                   </Link>
                   <Link
-                    to="/dashboard/requestedModules"
-                    style={{ textDecoration: "none" ,marginTop: "20px"}}
+                    to="/dashboard/appliedleaves"
+                    style={{ textDecoration: "none", marginTop: "20px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -176,7 +178,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/addPayCTC"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "10px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -197,7 +199,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/register"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "10px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -218,7 +220,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/addpost"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "10px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -239,7 +241,7 @@ const Sidebar = () => {
                   </Link>
                   <Link
                     to="/dashboard/viewAttendance"
-                    style={{ textDecoration: "none",marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "10px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -252,7 +254,28 @@ const Sidebar = () => {
                         </Grid>
                         <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
                           <Typography sx={SidebarActiveTextStyle}>
-                            Attendance/Holidays
+                            Attendance
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Paper>
+                  </Link>
+                  <Link
+                    to="/dashboard/holidays"
+                    style={{ textDecoration: "none", marginTop: "10px" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <HiOutlineUserGroup />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            Holidays
                           </Typography>
                         </Grid>
                       </Grid>
