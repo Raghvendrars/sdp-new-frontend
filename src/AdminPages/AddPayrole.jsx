@@ -1,7 +1,15 @@
 import react from "react";
 import axios from "axios";
-import { Paper, Grid, Typography, TextField, Button } from "@mui/material";
-import { useState } from "react";
+import {
+  Paper,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  MenuItem,
+} from "@mui/material";
+import { useState, useEffect } from "react";
 export default function AddPayrole() {
   const [employeeId, setemployeeId] = useState("");
   const [employeeName, setemployeeName] = useState("");
@@ -14,7 +22,7 @@ export default function AddPayrole() {
   const [number_of_leaves, setnumber_of_leaves] = useState("");
   const [total_monthly, settotal_monthly] = useState("");
   const [net_salary, setnet_salary] = useState("");
-
+  const [getEmployee, setGetEmployee] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(employeeName);
@@ -46,6 +54,21 @@ export default function AddPayrole() {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    try {
+      axios
+        .get("employee/get_employees", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res?.data);
+          setGetEmployee(res?.data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -100,15 +123,34 @@ export default function AddPayrole() {
             xl={10}
             sx={{ mt: "0.5%", mb: "0.5%" }}
           >
-            <TextField
-              id="outlined-search"
-              label="New Role"
-              size="large"
-              sx={{ width: "80%", minWidth: "80px" }}
-              onChange={(e) => {
-                setemployeeId(e.target.value);
-              }}
-            />
+            <Box>
+              <TextField
+                label=" Request Type"
+                id="filled-required"
+                variant="filled"
+                select
+                fullWidth
+                sx={{ width: "95%" }}
+                onChange={(e) => {
+                  setGetEmployee(e.target.value);
+                }}
+
+                //  value={request}
+                //  onChange={handleChangeRequest}
+                //  onChange={(e) => {
+                //   setrequestDetail({
+                //     ...requestDetail,
+                //     type: e.target.value,
+                //   });
+                // }}
+                //  helperText={request ? "selected" : "open this select menu"}
+              >
+                {getEmployee.map((data) => {
+                  console.log(data);
+                  return <MenuItem>{data.firstName}</MenuItem>;
+                })}
+              </TextField>
+            </Box>
           </Grid>
         </Grid>
         <Grid
