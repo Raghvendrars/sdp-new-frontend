@@ -38,11 +38,13 @@ const DashboardRouter = () => {
     }
   }, []);
 
+  console.log(user.role);
+
   return (
     <Paper sx={{ bgcolor: "#f9fafb", height: "100vh" }}>
       <Grid container>
         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-          <Header />
+          {user.role === "Admin" && user.role === "HR" ? <Header /> : null}
         </Grid>
       </Grid>
 

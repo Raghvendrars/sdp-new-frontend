@@ -26,8 +26,8 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="">
-        Your Website
+      <Link color="inherit" href="https://www.infiniumdevio.com/">
+        InfiniumDevIo
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -61,7 +61,7 @@ export default function SignIn() {
             if (role.code === 101) {
               navigate("/dashboard");
             } else if (role.code === 102) {
-              navigate("/attendance");
+              navigate("/dashboard");
             }
           }
         });
@@ -83,7 +83,7 @@ export default function SignIn() {
       }}
     >
       <Container component="main" maxWidth="xs">
-        <CssBaseline />e
+        <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
@@ -110,7 +110,7 @@ export default function SignIn() {
               required
               fullWidth
               id="id"
-              label="Email Address"
+              label="User Id"
               name="id"
               autoComplete="id"
               autoFocus
@@ -131,10 +131,10 @@ export default function SignIn() {
               }}
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -143,7 +143,7 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            <Grid container>
+            {/* <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
@@ -154,7 +154,7 @@ export default function SignIn() {
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
