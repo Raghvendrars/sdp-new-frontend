@@ -1,4 +1,6 @@
 import react from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Paper,
   Grid,
@@ -97,7 +99,7 @@ export default function AppliedLeaves() {
                               className="btn btn-warning"
                               data-bs-target="#update"
                               data-bs-toggle="modal"
-                              onClick={(e) => setGetLeaves(item._id)}
+                              onClick={(e) => setAllLeaves(item._id)}
                             >
                               Accept
                             </button>
