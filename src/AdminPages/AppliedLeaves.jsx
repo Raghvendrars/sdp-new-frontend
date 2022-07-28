@@ -1,4 +1,6 @@
-import react from "react";
+import react, { useState, useEffect } from "react";
+import axios from "axios";
+
 import {
   Paper,
   Grid,
@@ -106,29 +108,6 @@ export default function AppliedLeaves() {
                 })}
               </TableBody>
             </Table>
-            {/*<div class="modal fade" id="update">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">Request Granted ?</div>
-                        <div class="modal-body">
-                          <button
-                            className="btn btn-success px-4"
-                            data-bs-dismiss="modal"
-                            onClick={handleUpdateRequestStatus}
-                          >
-                            {" "}
-                            Yes{" "}
-                          </button>
-                          <button
-                            className="btn btn-outline-dark ms-2 px-4"
-                            data-bs-dismiss="modal"
-                          >
-                            No
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>*/}
           </TableContainer>
         </Paper>
       </Paper>
