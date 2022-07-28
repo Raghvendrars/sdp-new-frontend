@@ -60,7 +60,7 @@ export default function ShowHolidays() {
                   </TableCell>
                 </TableRow>
               );
-            })}
+            })} 
           </TableBody>
         </Table>
       </Grid>

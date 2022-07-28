@@ -16,7 +16,11 @@ import AddPost from "../AdminPages/AddPost";
 import ViewAttendance from "../AdminPages/ViewAttendance";
 import AppliedLeaves from "../AdminPages/AppliedLeaves";
 import { useNavigate } from "react-router-dom";
+// <<<<<<< HEAD
+// import AuthPayroll from "../Views/EmployeeView/AuthPayroll";
+// =======
 import Holidays from "../AdminPages/ShowHolidays";
+// <<<<<<< HEAD
 import Payrole from "../pages/Payrole/Payrole";
 
 const DashboardRouter = () => {
@@ -71,6 +75,7 @@ const DashboardRouter = () => {
           element={<ListAllServiceRequest />}
         />
         <Route path="/attendance" element={<Attendance />} />
+        {/* <Route path="/auth-payroll" element={<AuthPayroll />} /> */}
         {/* <Route path="/login" element={<Login />} /> */}
         <Route
           path="/dashboard/requestedModules"
