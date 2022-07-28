@@ -34,7 +34,8 @@ const Sidebar = () => {
           withCredentials: true,
         })
         .then((res) => {
-          setUser(res?.data?.code);
+          setUser(res?.data);
+          console.log(res?.data);
         });
     } catch (err) {
       alert(err);
@@ -130,7 +131,7 @@ const Sidebar = () => {
               elevation={0}
             >
               {/* Admin Routes */}
-              {user === 102 ? (
+              {user.role === "Admin" ? (
                 <Stack>
                   <Link
                     to="/dashboard/requestedModules"
