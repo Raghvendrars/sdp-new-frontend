@@ -9,14 +9,12 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import useGetLoginUser from "../hooks/loginUser/useGetLoginUser";
+
 
 const AttendanceTable = () => {
   const [attendanceData, setAttendanceData] = useState([]);
   const [getLoginUser, setgetLoginUser] = useState([]);
-  const { data, error } = useGetLoginUser();
 
-  console.log(data);
 
   useEffect(() => {
     axios
