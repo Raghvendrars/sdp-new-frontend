@@ -88,24 +88,24 @@ export default function AppliedLeaves() {
                         <Typography>{item.description}</Typography>
                       </TableCell>
 
-                      <TableCell>
-                        {" "}
-                        {item.status ? (
-                          <>Granted</>
-                        ) : (
-                          <button
-                            className="btn btn-warning"
-                            data-bs-target="#update"
-                            data-bs-toggle="modal"
-                            onClick={(e) => setGetLeaves(item._id)}
-                          >
-                            Accept
-                          </button>
-                        )}
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
+                        <TableCell>
+                          {" "}
+                          {item.status ? (
+                            <>Granted</>
+                          ) : (
+                            <button
+                              className="btn btn-warning"
+                              data-bs-target="#update"
+                              data-bs-toggle="modal"
+                              onClick={(e) => setAllLeaves(item._id)}
+                            >
+                              Accept
+                            </button>
+                          )}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </TableContainer>
