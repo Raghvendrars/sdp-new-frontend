@@ -10,11 +10,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-
 const AttendanceTable = () => {
   const [attendanceData, setAttendanceData] = useState([]);
-  const [getLoginUser, setgetLoginUser] = useState([]);
-
+ 
 
   useEffect(() => {
     axios
@@ -25,6 +23,7 @@ const AttendanceTable = () => {
         setAttendanceData(res?.data);
       });
   }, []);
+
 
   return (
     <Paper elevation={0} sx={{ bgcolor: "transparent" }}>

@@ -56,56 +56,54 @@ export default function AppliedLeaves() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {allLeaves &&
-                  allLeaves?.length > 0 &&
-                  allLeaves?.map((item, index) => {
-                    return (
-                      <TableRow>
-                        <TableCell>
-                          <Typography>{index + 1}</Typography>
-                        </TableCell>
-                        <TableCell sx={{ maxWidth: "300px" }}>
-                          <Typography>{item.name}</Typography>
-                        </TableCell>
-                        <TableCell
-                          sx={{
-                            maxWidth: "250px",
+                {allLeaves?.map((item, index) => {
+                  return (
+                    <TableRow>
+                      <TableCell>
+                        <Typography>{index + 1}</Typography>
+                      </TableCell>
+                      <TableCell sx={{ maxWidth: "300px" }}>
+                        <Typography>{item.name}</Typography>
+                      </TableCell>
+                      <TableCell
+                        sx={{
+                          maxWidth: "250px",
 
-                            whiteSpace: "unset",
-                            wordBreak: "break-all",
-                          }}
-                        >
-                          <Typography sx={{ width: "100%" }}>
-                            {item.dateFrom - item.dateFrom}
-                          </Typography>
-                        </TableCell>
-                        <TableCell sx={{ maxWidth: "300px" }}>
-                          <Typography sx={{ whiteSpace: "initial" }}>
-                            {item.reason}
-                          </Typography>
-                        </TableCell>
-                        <TableCell sx={{ maxWidth: "300px" }}>
-                          <Typography>{item.description}</Typography>
-                        </TableCell>
+                          whiteSpace: "unset",
+                          wordBreak: "break-all",
+                        }}
+                      >
+                        <Typography sx={{ width: "100%" }}>
+                          {item.dateFrom - item.dateFrom}
+                        </Typography>
+                      </TableCell>
+                      <TableCell sx={{ maxWidth: "300px" }}>
+                        <Typography sx={{ whiteSpace: "initial" }}>
+                          {item.reason}
+                        </Typography>
+                      </TableCell>
+                      <TableCell sx={{ maxWidth: "300px" }}>
+                        <Typography>{item.description}</Typography>
+                      </TableCell>
 
-                        <TableCell>
-                          {" "}
-                          {item.status ? (
-                            <>Granted</>
-                          ) : (
-                            <button
-                              className="btn btn-warning"
-                              data-bs-target="#update"
-                              data-bs-toggle="modal"
-                              onClick={(e) => setGetLeaves(item._id)}
-                            >
-                              Accept
-                            </button>
-                          )}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
+                      <TableCell>
+                        {" "}
+                        {item.status ? (
+                          <>Granted</>
+                        ) : (
+                          <button
+                            className="btn btn-warning"
+                            data-bs-target="#update"
+                            data-bs-toggle="modal"
+                            onClick={(e) => setGetLeaves(item._id)}
+                          >
+                            Accept
+                          </button>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
             {/*<div class="modal fade" id="update">

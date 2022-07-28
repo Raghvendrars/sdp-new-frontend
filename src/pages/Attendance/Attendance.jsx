@@ -10,17 +10,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-
 const Attendance = () => {
   const [attendanceData, setAttendanceData] = useState([]);
   const [getLoginUser, setgetLoginUser] = useState([]);
-
-
-  const [timerDataDay, setTimerDataDay] = useState();
-  const [timerDataHour, setTimerDataHour] = useState();
-  const [timerDataMinute, setTimerDataMinute] = useState();
-  const [timerDataSecond, setTimerDataSecond] = useState();
-
 
   useEffect(() => {
     axios
@@ -29,12 +21,9 @@ const Attendance = () => {
       })
       .then((res) => {
         setAttendanceData(res?.data);
+        console.log(res[0]?.data);
       });
   }, []);
-
-  // sdnfh
-
-
 
   return (
     <Paper elevation={0} sx={{ bgcolor: "transparent" }}>
@@ -57,7 +46,8 @@ const Attendance = () => {
               {attendanceData.length > 0 ? (
                 attendanceData.map((data, k) => {
                   let date = new Date(data.createdAt).toLocaleDateString();
-                  console.log(data.entryTime);
+                  let entryTime = new Date(data.entryTime).toLocaleTimeString();
+                  let exitTime = new Date(data.exitTime).toLocaleTimeString();
                   return (
                     <TableRow
                       key={k}
@@ -67,8 +57,10 @@ const Attendance = () => {
                         {k + 1}
                       </TableCell>
                       <TableCell align="right">{date}</TableCell>
-                      <TableCell align="right">{data.entryTime}</TableCell>
-                      <TableCell align="right">{data.exitTime}</TableCell>
+                      <TableCell align="right">{entryTime}</TableCell>
+                      <TableCell align="right">
+                        {exitTime ? exitTime : <>You have't logged Of</>}
+                      </TableCell>
                       <TableCell align="right">8 Hrs</TableCell>
                     </TableRow>
                   );
