@@ -9,17 +9,36 @@ import {
   TableHead,
   TableRow,
   TableCell,
+  Modal,
   TableBody,
   Typography,
+  Box,
+  Button,
 } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 
 export default function AppliedLeaves() {
   const [allLeaves, setAllLeaves] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  const [leaveId, setLeaveId] = useState("");
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     try {
       axios
-        .get("leaveRequest/get_leave_requests", {
+        .get("allLeaves/get_leave_requests", {
           withCredentials: true,
         })
         .then((res) => {
@@ -30,6 +49,26 @@ export default function AppliedLeaves() {
       console.log(err);
     }
   }, []);
+
+  async function handleApprove() {
+    try {
+      axios
+        .put(
+          `allLeaves/update_leave_request/${leaveId}`,
+          { status: "accepted" },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      handleClose();
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
@@ -51,61 +90,109 @@ export default function AppliedLeaves() {
                   <TableCell>Name</TableCell>
                   <TableCell>Leave Type</TableCell>
                   <TableCell>No of Days</TableCell>
-                  <TableCell>From - To</TableCell>
+                  <TableCell>From</TableCell>
+                  <TableCell>To</TableCell>
                   <TableCell>Reason</TableCell>
                   <TableCell>Description</TableCell>
+                  <TableCell>Status</TableCell>
                   <TableCell>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {allLeaves?.map((item, index) => {
-                  return (
-                    <TableRow>
-                      <TableCell>
-                        <Typography>{index + 1}</Typography>
-                      </TableCell>
-                      <TableCell sx={{ maxWidth: "300px" }}>
-                        <Typography>{item.name}</Typography>
-                      </TableCell>
-                      <TableCell
-                        sx={{
-                          maxWidth: "250px",
+                {allLeaves.length > 0 ? (
+                  <>
+                    {allLeaves?.map((item, index) => {
+                      console.log(item);
+                      return (
+                        <TableRow>
+                          <TableCell>
+                            <Typography>{index + 1}</Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{item.employeeName}</Typography>
+                          </TableCell>
+                          <TableCell
+                            sx={{
+                              maxWidth: "250px",
 
-                          whiteSpace: "unset",
-                          wordBreak: "break-all",
-                        }}
-                      >
-                        <Typography sx={{ width: "100%" }}>
-                          {item.dateFrom - item.dateFrom}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={{ maxWidth: "300px" }}>
-                        <Typography sx={{ whiteSpace: "initial" }}>
-                          {item.reason}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={{ maxWidth: "300px" }}>
-                        <Typography>{item.description}</Typography>
-                      </TableCell>
+                              whiteSpace: "unset",
+                              wordBreak: "break-all",
+                            }}
+                          >
+                            <Typography sx={{ width: "100%" }}>
+                              {item.leaveType}
+                            </Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography sx={{ whiteSpace: "initial" }}>
+                              {item.noOfDays}
+                            </Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{item.dateFrom}</Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{item.dateTo}</Typography>
+                          </TableCell>
 
-                        <TableCell>
-                          {" "}
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{item.reason}</Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>{item.description}</Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "300px" }}>
+                            <Typography>
+                              {item.status ? <>{item.status}</> : <>Pending</>}
+                            </Typography>
+                          </TableCell>
                           {item.status ? (
-                            <>Granted</>
+                            <TableCell>
+                              <Typography>Accepted</Typography>
+                            </TableCell>
                           ) : (
-                            <button
-                              className="btn btn-warning"
-                              data-bs-target="#update"
-                              data-bs-toggle="modal"
-                              onClick={(e) => setAllLeaves(item._id)}
-                            >
-                              Accept
-                            </button>
+                            <TableCell>
+                              <Button
+                                variant="outlined"
+                                onClick={() => {
+                                  handleClickOpen();
+                                  setLeaveId(item._id);
+                                }}
+                              >
+                                Accept
+                              </Button>
+                              <Dialog
+                                open={open}
+                                onClose={handleClose}
+                                sx={{ bgcolor: "white" }}
+                              >
+                                <DialogTitle id="alert-dialog-title">
+                                  {"Use Google's location service?"}
+                                </DialogTitle>
+                                <DialogContent>
+                                  <DialogContentText id="alert-dialog-description">
+                                    {leaveId}
+                                  </DialogContentText>
+                                </DialogContent>
+
+                                <DialogActions>
+                                  <Button onClick={handleApprove}>
+                                    Accept
+                                  </Button>
+                                  <Button onClick={handleClose} autoFocus>
+                                    Agree
+                                  </Button>
+                                </DialogActions>
+                              </Dialog>
+                            </TableCell>
                           )}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
+                        </TableRow>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <>No data found</>
+                )}
               </TableBody>
             </Table>
           </TableContainer>

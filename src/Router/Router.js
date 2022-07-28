@@ -16,7 +16,11 @@ import AddPost from "../AdminPages/AddPost";
 import ViewAttendance from "../AdminPages/ViewAttendance";
 import AppliedLeaves from "../AdminPages/AppliedLeaves";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import AuthPayroll from "../Views/EmployeeView/AuthPayroll";
+=======
+import Holidays from "../AdminPages/ShowHolidays";
+>>>>>>> 76a1602289193005b8d21ff87494d128702686ab
 
 const DashboardRouter = () => {
   const [user, setUser] = useState({});
@@ -70,11 +74,15 @@ const DashboardRouter = () => {
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/auth-payroll" element={<AuthPayroll />} />
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path="/dashboard/requestedModules" element={<AppliedLeaves />} />
-        <Route path="/dashboard/appliedLeaves" element={<RequestedModules />} />
+        <Route
+          path="/dashboard/requestedModules"
+          element={<RequestedModules />}
+        />
+        <Route path="/dashboard/appliedLeaves" element={<AppliedLeaves />} />
         <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
         <Route path="/dashboard/register" element={<Register />} />
         <Route path="/dashboard/addpost" element={<AddPost />} />
+        <Route path="/dashboard/viewHolidays" element={<Holidays />} />
         <Route path="/dashboard/viewAttendance" element={<ViewAttendance />} />
       </Routes>
     </Paper>
