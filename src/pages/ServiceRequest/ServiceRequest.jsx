@@ -54,169 +54,169 @@ const ServiceRequest = () => {
       });
   };
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <Paper
-        elevation={3}
-        sx={{
-          minHeight: "400px",
-          width: "85%",
-          mt: "10%",
-          mx: "auto",
-        }}
-      >
-        <Grid container sx={{ mt: "2%" }}>
-          <Grid item xl={2} lg={3} md={4} sm={5} xs={4}>
-            <Typography
-              sx={{
-                fontSize: "23px",
-                textAlign: "center",
-                mt: "8%",
+    <Paper
+      elevation={3}
+      sx={{ maxHeight: "100vh", minHeight: "100vh", marginTop:"9vh" }}
+    > 
+    <Grid container mt={5}></Grid>
+      <Paper sx={{width:"90%",mx:"auto",mt:"3%"}}>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          
+            <Grid container sx={{ mt: "5%" }}>
+              <Grid item xl={2} lg={3} md={4} sm={12} xs={12} mt={3}>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    textAlign: "center",
+                    mt: "8%",
+                    mr: "2%",
+                  }}
+                >
+                  Request Name
+                </Typography>
+              </Grid>
+              <Grid item xl={10} lg={9} md={8} sm={12} xs={12} mt={3}>
+                <TextField
+                  required
+                  id="filled-required"
+                  variant="filled"
+                  placeholder="No. of Days"
+                  sx={{ width: "95%" }}
+                  onChange={(e) => {
+                    setrequestName(e.target.value);
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid container sx={{ mt: "2%" }}>
+              <Grid item xl={2} lg={3} md={4} sm={12} xs={12}>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    textAlign: "center",
+                    mt: "8%",
 
-                mr: "2%",
-              }}
-            >
-              Request Name
-            </Typography>
-          </Grid>
-          <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-            <TextField
-              required
-              id="filled-required"
-              variant="filled"
-              placeholder="No. of Days"
-              sx={{ width: "95%" }}
-              onChange={(e) => {
-                setrequestName(e.target.value);
-              }}
-            />
-          </Grid>
-        </Grid>
-        <Grid container sx={{ mt: "2%" }}>
-          <Grid item xl={2} lg={3} md={4} sm={5} xs={4}>
-            <Typography
-              sx={{
-                fontSize: "23px",
-                textAlign: "center",
-                mt: "8%",
+                    mr: "2%",
+                  }}
+                >
+                  Approval From
+                </Typography>
+              </Grid>
+              <Grid item xl={10} lg={9} md={8} sm={12} xs={12}>
+                <Box>
+                  <TextField
+                    label="Approval From"
+                    id="filled-required"
+                    variant="filled"
+                    select
+                    fullWidth
+                    sx={{ width: "95%" }}
+                    onChange={(e) => {
+                      setapprovalName(e.target.value);
+                    }}
+                  >
+                    <MenuItem value="Admin">Admin</MenuItem>
+                    <MenuItem value="Hr">HR</MenuItem>
+                    <MenuItem value="Project Manager">Project Manager</MenuItem>
+                  </TextField>
+                </Box>
+              </Grid>
+            </Grid>
+            <Grid container sx={{ mt: "2%" }}>
+              <Grid item xl={2} lg={3} md={4} sm={12} xs={12}>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    textAlign: "center",
+                    mt: "8%",
 
-                mr: "2%",
-              }}
+                    mr: "2%",
+                  }}
+                >
+                  Subject
+                </Typography>
+              </Grid>
+              <Grid item xl={10} lg={9} md={8} sm={12} xs={12}>
+                <TextField
+                  required
+                  id="filled-required"
+                  variant="filled"
+                  placeholder="No. of Days"
+                  sx={{ width: "95%" }}
+                  onChange={(e) => {
+                    setsubject(e.target.value);
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid container sx={{ mt: "2%" }}>
+              <Grid item xl={2} lg={3} md={4} sm={12} xs={12}>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                    textAlign: "center",
+                    mt: "8%",
+                    mr: "2%",
+                  }}
+                >
+                  Request Type
+                </Typography>
+              </Grid>
+              <Grid item xl={10} lg={9} md={8} sm={12} xs={12}>
+                <Box>
+                  <TextField
+                    label=" Request Type"
+                    id="filled-required"
+                    variant="filled"
+                    select
+                    fullWidth
+                    sx={{ width: "95%" }}
+                    onChange={(e) => {
+                      setrequestType(e.target.value);
+                    }}
+                  >
+                    <MenuItem value="High">High</MenuItem>
+                    <MenuItem value="Medium">medium</MenuItem>
+                    <MenuItem value="Low">Low</MenuItem>
+                  </TextField>
+                </Box>
+              </Grid>
+            </Grid>
+            <Grid
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              sx={{ width: "100%", textAlign: "center", pb: "2%", pt: "1%" }}
+              mt={3}
+              mb={3}
             >
-              Approval From
-            </Typography>
-          </Grid>
-          <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-            <Box>
-              <TextField
-                label="Approval From"
-                id="filled-required"
-                variant="filled"
-                select
-                fullWidth
-                sx={{ width: "95%" }}
-                onChange={(e) => {
-                  setapprovalName(e.target.value);
+              <Button
+                //onClick={handelsubmit}
+                type="submit"
+                variant="contained"
+                sx={{
+                  borderRadius: 28,
+                  color: "white",
+                  background: "#2065D1",
+                  width: "25%",
+                  maxWidth: "250px",
+                  minWidth: "250px",                   
+                  ml: "auto",
+                  mt: 2,
+                  mb:2,
+                  mr: "auto",
+                  // mx: "auto",
                 }}
               >
-                <MenuItem value="Admin">Admin</MenuItem>
-                <MenuItem value="Hr">HR</MenuItem>
-                <MenuItem value="Project Manager">Project Manager</MenuItem>
-              </TextField>
-            </Box>
-          </Grid>
-        </Grid>
-        <Grid container sx={{ mt: "2%" }}>
-          <Grid item xl={2} lg={3} md={4} sm={5} xs={4}>
-            <Typography
-              sx={{
-                fontSize: "23px",
-                textAlign: "center",
-                mt: "8%",
-
-                mr: "2%",
-              }}
-            >
-              Subject
-            </Typography>
-          </Grid>
-          <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-            <TextField
-              required
-              id="filled-required"
-              variant="filled"
-              placeholder="No. of Days"
-              sx={{ width: "95%" }}
-              onChange={(e) => {
-                setsubject(e.target.value);
-              }}
-            />
-          </Grid>
-        </Grid>
-        <Grid container sx={{ mt: "2%" }}>
-          <Grid item xl={2} lg={3} md={4} sm={5} xs={4}>
-            <Typography
-              sx={{
-                fontSize: "23px",
-                textAlign: "center",
-                mt: "8%",
-
-                mr: "2%",
-              }}
-            >
-              Request Type
-            </Typography>
-          </Grid>
-          <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-            <Box>
-              <TextField
-                label=" Request Type"
-                id="filled-required"
-                variant="filled"
-                select
-                fullWidth
-                sx={{ width: "95%" }}
-                onChange={(e) => {
-                  setrequestType(e.target.value);
-                }}
-              >
-                <MenuItem value="High">High</MenuItem>
-                <MenuItem value="Medium">medium</MenuItem>
-                <MenuItem value="Low">Low</MenuItem>
-              </TextField>
-            </Box>
-          </Grid>
-        </Grid>
-        <Grid
-          item
-          xl={12}
-          lg={12}
-          md={12}
-          sm={12}
-          xs={12}
-          sx={{ width: "100%", textAlign: "center", pb: "2%", pt: "1%" }}
-        >
-          <Button
-            //onClick={handelsubmit}
-            type="submit"
-            variant="contained"
-            sx={{
-              borderRadius: 28,
-              color: "white",
-              background: "#2065D1",
-              width: "25%",
-              maxWidth: "250px",
-              minWidth: "250px",
-              ml: "auto",
-              mt: 2,
-              mr: "auto",
-              // mx: "auto",
-            }}
-          >
-            SEND
-          </Button>
-        </Grid>
+                SEND
+              </Button>
+            </Grid>       
+        </form>
       </Paper>
-    </form>
+    </Paper>
   );
 };
 
