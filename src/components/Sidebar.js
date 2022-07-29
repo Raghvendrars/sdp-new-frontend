@@ -168,7 +168,7 @@ const Sidebar = () => {
                     </Paper>
                   </Link>
                   <Link
-                    to="/dashboard/requestedModules"
+                    to="/dashboard/appliedleaves"
                     style={{ textDecoration: "none" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
@@ -252,7 +252,7 @@ const Sidebar = () => {
                     </Paper>
                   </Link>
                   <Link
-                    to="/attendance"
+                    to="/dashboard/viewAttendance"
                     style={{ textDecoration: "none", marginTop: "10px" }}
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>

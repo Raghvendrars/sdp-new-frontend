@@ -70,7 +70,11 @@ const Attendance = () => {
                       </TableCell>
                       <TableCell align="right">
                         <Typography>
-                          {exTime?(<Timer entryTime={newdata} exitTime={newdata2} />):(<>0</>)}
+                          {exTime ? (
+                            <Timer entryTime={newdata} exitTime={newdata2} />
+                          ) : (
+                            <>0</>
+                          )}
                         </Typography>
                       </TableCell>
                       

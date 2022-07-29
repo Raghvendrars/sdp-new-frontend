@@ -54,7 +54,6 @@ export default function ViewAttendance() {
               return (
                 <Accordion>
                   <AccordionSummary
-                    // expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >

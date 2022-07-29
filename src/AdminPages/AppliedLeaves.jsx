@@ -24,6 +24,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 export default function AppliedLeaves() {
   const [allLeaves, setAllLeaves] = useState([]);
   const [open, setOpen] = useState(false);
+  const [status, setStatus] = useState("");
 
   const [leaveId, setLeaveId] = useState("");
 
@@ -50,12 +51,12 @@ export default function AppliedLeaves() {
     }
   }, []);
 
-  async function handleApprove() {
+  async function handleApprove(status) {
     try {
       axios
         .put(
           `allLeaves/update_leave_request/${leaveId}`,
-          { status: "accepted" },
+          { status: status },
           { withCredentials: true }
         )
         .then((res) => {
@@ -176,11 +177,23 @@ export default function AppliedLeaves() {
                                 </DialogContent>
 
                                 <DialogActions>
-                                  <Button onClick={handleApprove}>
+                                  <Button
+                                    onClick={() => {
+                                      handleApprove("Accept");
+                                      // setStatus("Accept");
+                                    }}
+                                  >
                                     Accept
                                   </Button>
-                                  <Button onClick={handleClose} autoFocus>
-                                    Agree
+                                  <Button
+                                    onClick={() => {
+                                      handleApprove("Decline");
+
+                                      // setStatus("Decline");
+                                    }}
+                                    autoFocus
+                                  >
+                                    Decline
                                   </Button>
                                 </DialogActions>
                               </Dialog>
