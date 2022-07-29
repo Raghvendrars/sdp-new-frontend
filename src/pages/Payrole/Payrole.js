@@ -8,6 +8,7 @@ import {
   TableCell,
   Table,
   TableRow,
+  TableContainer
 } from "@mui/material";
 
 const Payrole = () => {
@@ -26,10 +27,12 @@ const Payrole = () => {
   }, []);
 
   return (
-    <Paper>
-      <Grid container>
-        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-          <Table sx={{ background: "#eceff1" }}>
+    <Paper sx={{width: '85%', overflow: 'hidden', marginLeft:"20px",marginRight:'20%',marginTop:"50px"}}>
+      <Paper
+      sx={{width: '100%', overflow: 'hidden'}} 
+      >
+        <TableContainer sx={{ maxHeight: 440 ,background: "#eceff1" }}>
+          <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
                 <TableCell>#</TableCell>
@@ -61,8 +64,8 @@ const Payrole = () => {
               })}
             </TableHead>
           </Table>
-        </Grid>
-      </Grid>
+        </TableContainer>
+      </Paper>
     </Paper>
   );
 };

@@ -1,7 +1,7 @@
 import react from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import {
   Paper,
@@ -63,7 +63,7 @@ export default function AddRole() {
     <Paper>
       <Accordion>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          // expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >

@@ -11,7 +11,7 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import { useState, useEffect } from "react";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddCTC from "./AddCTC";
 import AddPayrole from "./AddPayrole";
 export default function AddPayCTC() {
@@ -36,7 +36,7 @@ export default function AddPayCTC() {
             >
               <Accordion>
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
+                  // expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
