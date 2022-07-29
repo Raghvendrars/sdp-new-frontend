@@ -1,75 +1,73 @@
-import react from "react";
-import {
-  Grid,
-  Paper,
-  Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
-} from "@mui/material";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useEffect, useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import AttendanceTable from "./AttendanceTable";
-import AddHoliday from "./AddHoliday";
-import ShowHolidays from "./ShowHolidays";
-export default function ViewAttendance() {
-  const [getEmployee, setGetEmployee] = useState([]);
+import {
+  Paper,
+  Grid,
+  TableHead,
+  TableCell,
+  Table,
+  TableRow,
+  TableContainer
+} from "@mui/material";
 
+const Payrole = () => {
+  const [payrole, setPayrole] = useState([]);
   useEffect(() => {
     try {
       axios
-        .get("addEmployeeAuth/get_all_employee_auth", {
-          withCredentials: true,
-        })
+        .get("empPayrole/getCurrentMonthMyPayrole", { withCredentials: true })
         .then((res) => {
-          console.log(res?.data);
-          setGetEmployee(res?.data);
+          console.log(res.data);
+          setPayrole(res?.data);
         });
     } catch (err) {
       console.log(err);
     }
   }, []);
-  console.log(getEmployee);
-  return (
-    <Paper sx={{ height: "100vh" }}>
-      <Grid container sx={{ width: "85%", mx: "auto" }}>
-        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-          <Button>Update Attendance</Button>
-        </Grid>
 
-        <Grid container sx={{ mx: "auto", mt: "3%" }}>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            xl={12}
-            sx={{ mx: "auto" }}
-          >
-            {getEmployee.map((data) => {
-              console.log(data);
-              return (
-                <Accordion>
-                  <AccordionSummary
-                    // expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography>{data.employeeName}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <AttendanceTable userId={data._id} />
-                  </AccordionDetails>
-                </Accordion>
-              );
-            })}
-          </Grid>
-        </Grid>
-      </Grid>
-     
+  return (
+    <Paper sx={{width: '85%', overflow: 'hidden', marginLeft:"20px",marginRight:'20%',marginTop:"50px"}}>
+      <Paper
+      sx={{width: '100%', overflow: 'hidden'}} 
+      >
+        <TableContainer sx={{ maxHeight: 440 ,background: "#eceff1" }}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                <TableCell>#</TableCell>
+                <TableCell>Basic Salary</TableCell>
+                <TableCell>Leave/Travel Allowance</TableCell>
+                <TableCell>Medical Allowance</TableCell>
+                <TableCell>No Of Leaves</TableCell>
+                <TableCell>Performance Bonus</TableCell>
+                <TableCell>Special Allowance</TableCell>
+                <TableCell>HRA</TableCell>
+                <TableCell>Total</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableHead>
+              {payrole?.map((data, index) => {
+                return (
+                  <TableRow>
+                    <TableCell>{index + 1}</TableCell>
+                    <TableCell>{data.basic_salary}</TableCell>
+                    <TableCell>{data.leave_travel_allowance}</TableCell>
+                    <TableCell>{data.medical_allowance}</TableCell>
+                    <TableCell>{data.number_of_leaves}</TableCell>
+                    <TableCell>{data.performance_bonus}</TableCell>
+                    <TableCell>{data.special_allowance}</TableCell>
+                    <TableCell>{data.HRA}</TableCell>
+                    <TableCell>{data.net_salary}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableHead>
+          </Table>
+        </TableContainer>
+      </Paper>
     </Paper>
   );
-}
+};
+
+export default Payrole;
