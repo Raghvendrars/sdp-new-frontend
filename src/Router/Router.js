@@ -16,6 +16,7 @@ import AddPost from "../AdminPages/AddPost";
 import ViewAttendance from "../AdminPages/ViewAttendance";
 import AppliedLeaves from "../AdminPages/AppliedLeaves";
 import { useNavigate } from "react-router-dom";
+import AttendanceTable from "../AdminPages/AttendanceTable";
 // <<<<<<< HEAD
 // import AuthPayroll from "../Views/EmployeeView/AuthPayroll";
 // =======
