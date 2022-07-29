@@ -11,6 +11,7 @@ import {
   Typography,
   MenuItem,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const LeaveRequest = () => {
   const [leaveType, setLeaveType] = useState("");
@@ -43,143 +44,113 @@ const LeaveRequest = () => {
   return (
     <Paper
       elevation={3}
-      sx={{ minHeight: "400px", width: "85%", mx: "auto", mt: "10%" }}
+      sx={{ maxHeight: "100vh", minHeight: "100vh", marginTop:"9vh" }}
     >
-      <Grid container>
-        <Grid xl={2} lg={3} md={4} sm={5} xs={4}>
-          <Typography
-            sx={{
-              fontSize: "23px",
-              textAlign: "center",
-              mt: "8%",
-              mr: "2%",
-            }}
-          >
-            Reasons
-          </Typography>
-        </Grid>
-        <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-          <Box>
-            <TextField
-              label=" Reason"
-              variant="filled"
-              select
-              fullWidth
-              size="small"
-              sx={{ mt: "1.5%", mb: "1.5%", width: "95%" }}
-              onChange={(e) => {
-                setReason(e.target.value);
+       
+        {/* <Button variant="contained" color="primary" sx={{ mt: "3%" }}>
+           
+        </Button> */}
+       <Grid container mt={5}></Grid>
+       <Paper sx={{width:"90%",mx:"auto",mt:"3%"}}>
+        <Paper elevation={0}>        
+          <Grid container mt={5}>
+          <Grid xl={2} lg={3} md={4} sm={5} xs={4} mt={5}>
+            <Typography
+              sx={{
+                fontSize: "20px",
+                textAlign: "center",
+                mt: "8%",
+                mr: "2%",
               }}
-              // value={request}
-              // onChange={handleChangeRequest}
-              //  onChange={(e) => {
-              //   setrequestDetail({
-              //     ...requestDetail,
-              //     type: e.target.value,
-              //   });
-              // }}
-              // helperText={request ? 'selected' : 'open this select menu'}
             >
-              <MenuItem value="Vacation">Vacation</MenuItem>
-              <MenuItem value="Function">Function</MenuItem>
-              <MenuItem value="Sick-Family">Sick-Family</MenuItem>
-              <MenuItem value="Sick-Self">Sick-Self</MenuItem>
-              <MenuItem value="Others">Others</MenuItem>
-            </TextField>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid xl={2} lg={3} md={4} sm={5} xs={4}>
-          <Typography
-            sx={{
-              fontSize: "23px",
-              textAlign: "center",
-              mt: "8%",
-
-              mr: "2%",
-            }}
-          >
-            Dates
-          </Typography>
-        </Grid>
-        <Grid item xl={10} lg={9} md={8} sm={7} xs={12} sx={{ mt: "2.5%" }}>
-          <DateRangePicker onChange={onChange} value={value} />
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid
-          item
-          xl={12}
-          lg={12}
-          md={12}
-          sm={12}
-          xs={12}
-          sx={{ width: "100%", mt: "10px", mb: "10px" }}
-        >
+              Reasons
+            </Typography>
+          </Grid>
+          <Grid item xl={10} lg={9} md={8} sm={7} xs={12} mt={5}>
+            <Box>
+              <TextField
+                label=" Reason"
+                variant="filled"
+                select
+                fullWidth
+                size="small"
+                sx={{ mt: "1.5%", mb: "1.5%", width: "95%" }}
+                onChange={(e) => {
+                  setReason(e.target.value);
+                }}
+                // value={request}
+                // onChange={handleChangeRequest}
+                //  onChange={(e) => {
+                //   setrequestDetail({
+                //     ...requestDetail,
+                //     type: e.target.value,
+                //   });
+                // }}
+                // helperText={request ? 'selected' : 'open this select menu'}
+              >
+                <MenuItem value="Vacation">Vacation</MenuItem>
+                <MenuItem value="Function">Function</MenuItem>
+                <MenuItem value="Sick-Family">Sick-Family</MenuItem>
+                <MenuItem value="Sick-Self">Sick-Self</MenuItem>
+                <MenuItem value="Others">Others</MenuItem>
+              </TextField>
+            </Box>
+          </Grid>
+          </Grid>
           <Grid container>
             <Grid xl={2} lg={3} md={4} sm={5} xs={4}>
               <Typography
                 sx={{
-                  fontSize: "23px",
+                  fontSize: "20px",
                   textAlign: "center",
                   mt: "8%",
-
                   mr: "2%",
                 }}
               >
-                No of Days
+                Dates
               </Typography>
             </Grid>
-            <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-              <TextField
-                required
-                id="filled-required"
-                variant="filled"
-                placeholder="No. of Days"
-                sx={{ width: "95%" }}
-                // onChange={(e) => {
-                //   setresult({ ...result, noOfDays: e.target.value });
-                //   console.log("noofdays",e.target.value);
-                // }}
-                // value={calulateDate}
-              />
+            <Grid item xl={10} lg={9} md={8} sm={7} xs={12} sx={{ mt: "2%" }}>
+              <DateRangePicker sx={{width: "2000%" }} onChange={onChange} value={value} />
             </Grid>
           </Grid>
-          <Grid
-            item
-            xl={12}
-            lg={12}
-            md={12}
-            sm={12}
-            xs={12}
-            sx={{ width: "100%", mt: "10px", mb: "10px" }}
-          >
-            <Grid container sx={{ mt: "3px" }}>
-              <Grid xl={2} lg={3} md={4} sm={5} xs={4}>
-                <Typography
-                  sx={{
-                    fontSize: "23px",
-                    textAlign: "center",
-                    mt: "8%",
-                    mr: "2%",
-                  }}
-                  onChange={(e) => {
-                    //  setresult({...result,desc:e.target.value})
-                  }}
-                >
-                  Description
-                </Typography>
-              </Grid>
-              <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
-                <TextField
-                  id="filled-multiline-static"
-                  multiline
-                  placeholder="Description"
-                  rows={4}
-                  variant="filled"
-                  sx={{ width: "95%", mt: "1%" }}
-                />
+          <Grid container>
+            <Grid
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              sx={{ width: "100%", mt: "10px", mb: "10px" }}
+            >
+              <Grid container>
+                <Grid xl={2} lg={3} md={4} sm={5} xs={4}>
+                  <Typography
+                    sx={{
+                      fontSize: "20px",
+                      textAlign: "center",
+                      mt: "8%",
+                      mr: "2%",
+                    }}
+                  >
+                    No of Days
+                  </Typography>
+                </Grid>
+                <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
+                  <TextField
+                    required
+                    id="filled-required"
+                    variant="filled"
+                    placeholder="No. of Days"
+                    sx={{ width: "95%", mt:"2%"}}
+                    // onChange={(e) => {
+                    //   setresult({ ...result, noOfDays: e.target.value });
+                    //   console.log("noofdays",e.target.value);
+                    // }}
+                    // value={calulateDate}
+                  />
+                </Grid>
               </Grid>
               <Grid
                 item
@@ -188,33 +159,86 @@ const LeaveRequest = () => {
                 md={12}
                 sm={12}
                 xs={12}
-                sx={{ width: "100%", textAlign: "center" }}
+                sx={{ width: "100%", mt: "10px", mb: "10px" }}
               >
-                <Button
-                  onClick={handleSubmit}
-                  variant="contained"
-                  sx={{
-                    borderRadius: 28,
-                    color: "white",
-                    background: "#2065D1",
-                    width: "25%",
-                    maxWidth: "250px",
-                    minWidth: "250px",
-                    ml: "auto",
-                    mt: 2,
-                    mr: "auto",
-                    // mx: "auto",
-                  }}
-                >
-                  SEND
-                </Button>
+                <Grid container sx={{ mt: "3px" }}>
+                  <Grid xl={2} lg={3} md={4} sm={5} xs={4}>
+                    <Typography
+                      sx={{
+                        fontSize: "20px",
+                        textAlign: "center",
+                        mt: "8%",
+                        mr: "2%",
+                      }}
+                      onChange={(e) => {
+                        //  setresult({...result,desc:e.target.value})
+                      }}
+                    >
+                      Description
+                    </Typography>
+                  </Grid>
+                  <Grid item xl={10} lg={9} md={8} sm={7} xs={12}>
+                    <TextField
+                      id="filled-multiline-static"
+                      multiline
+                      placeholder="Description"
+                      rows={4}
+                      variant="filled"
+                      sx={{ width: "95%", mt: "1%" }}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xl={12}
+                    lg={12}
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    sx={{ width: "100%", textAlign: "center" }}
+                    mt={3}
+                  >
+                    <Button
+                      onClick={handleSubmit}
+                      variant="contained"
+                      sx={{
+                        borderRadius: 28,
+                        color: "white",
+                        background: "#2065D1",
+                        width: "25%",
+                        maxWidth: "250px",
+                        minWidth: "250px",
+                        ml: "auto",
+                        mt: 2,
+                        mr: "auto",
+                        // mx: "auto",
+                      }}
+                    >
+                      SEND
+                    </Button>
+                  </Grid>
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
         </Grid>
-      </Grid>
+       </Paper>
+       </Paper>
     </Paper>
   );
 };
 
 export default LeaveRequest;
+
+const dateRangPicker={
+  backgroundColor: "#fff",
+  bordeRadius: "4px",
+  border: "1px solid #ddd",
+  width: "278px",
+  maxWidth: "none",
+  padding: 0,
+  marginTop: "7px",
+  top: "100px",
+  left: "20px",
+  // z-index: "3001",
+  display: "none",
+  fontFamily: "arial",
+}
