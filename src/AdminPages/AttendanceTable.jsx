@@ -12,7 +12,7 @@ import TableRow from "@mui/material/TableRow";
 import Timer from "../components/Timer";
 
 const AttendanceTable = (props) => {
-  console.log("Props",props);
+  console.log("Props", props);
   let userId = props.userId;
   const [attendanceData, setAttendanceData] = useState([]);
 
@@ -22,10 +22,12 @@ const AttendanceTable = (props) => {
         withCredentials: true,
       })
       .then((res) => {
-        console.log("siduhguffy",res?.data);
+        console.log("siduhguffy", res?.data);
         setAttendanceData(res?.data);
       });
   }, []);
+
+  console.log(attendanceData);
 
   return (
     <Paper elevation={0} sx={{ bgcolor: "transparent" }}>
@@ -34,11 +36,12 @@ const AttendanceTable = (props) => {
         elevation={0}
       >
         <TableContainer>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table  stickyHeader aria-label="sticky table" >
             <TableHead>
               <TableRow>
                 <TableCell>No</TableCell>
                 <TableCell align="right">Date</TableCell>
+                <TableCell>Employee Name</TableCell>
                 <TableCell align="right">Entry Time</TableCell>
                 <TableCell align="right">Exit Time</TableCell>
                 <TableCell align="right">Total Hours</TableCell>
@@ -47,6 +50,7 @@ const AttendanceTable = (props) => {
             <TableBody>
               {attendanceData.length > 0 ? (
                 attendanceData.map((data, k) => {
+                  console.log(data);
                   console.log(data.entryTime);
                   let etime = data.entryTime;
                   let exTime = data.exitTime;
@@ -65,6 +69,7 @@ const AttendanceTable = (props) => {
                         {k + 1}
                       </TableCell>
                       <TableCell align="right">{date}</TableCell>
+                      <TableCell>{data.employeeName}</TableCell>
                       <TableCell align="right">{etimew}</TableCell>
                       <TableCell align="right">{etimew2}</TableCell>
                       <TableCell align="right">

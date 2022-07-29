@@ -28,13 +28,12 @@ const Attendance = () => {
   }, []);
 
   return (
-    <Paper elevation={0} sx={{ bgcolor: "transparent" }}>
+    <Paper elevation={0} sx={{ bgcolor: "transparent", margin:"50px" }}>
       <Paper
-        sx={{ width: "90%", mx: "auto", mt: 10, bgcolor: "transparent" }}
-        elevation={0}
+      sx={{width: '100%', overflow: 'hidden'}} 
       >
-        <TableContainer>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableContainer sx={{ maxHeight: 440 }}>
+          <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
                 <TableCell>No</TableCell>
@@ -71,9 +70,14 @@ const Attendance = () => {
                       </TableCell>
                       <TableCell align="right">
                         <Typography>
-                          {exTime?(<Timer entryTime={newdata} exitTime={newdata2} />):(<>0</>)}
+                          {exTime ? (
+                            <Timer entryTime={newdata} exitTime={newdata2} />
+                          ) : (
+                            <>0</>
+                          )}
                         </Typography>
                       </TableCell>
+                      
                     </TableRow>
                   );
                 })

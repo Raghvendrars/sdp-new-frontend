@@ -54,7 +54,6 @@ export default function ViewAttendance() {
               return (
                 <Accordion>
                   <AccordionSummary
-                    // expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
@@ -69,14 +68,7 @@ export default function ViewAttendance() {
           </Grid>
         </Grid>
       </Grid>
-      {/* <Grid container>
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <ShowHolidays />
-        </Grid>
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <AddHoliday />
-        </Grid>
-      </Grid> */}
+     
     </Paper>
   );
 }
