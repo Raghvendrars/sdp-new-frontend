@@ -77,6 +77,11 @@ const ListAllServiceRequest = () => {
                         </Typography>
                       </TableCell>
                       <TableCell>
+                        <Typography sx={TableHeadeTextStyle}>
+                          Requested Date
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
                         <Typography sx={TableHeadeTextStyle}>Status</Typography>
                       </TableCell>
                     </TableRow>
@@ -102,7 +107,7 @@ const ListAllServiceRequest = () => {
                           </TableCell>
                           <TableCell sx={{ maxWidth: "250px" }}>
                             <Typography sx={TableBodyTextStyle}>
-                              {data.leaveType}
+                              {data.requestName}
                             </Typography>
                           </TableCell>
                           <TableCell>
