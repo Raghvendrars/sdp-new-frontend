@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import AddHoliday from "../AdminPages/AddHoliday";
 import {
   Paper,
   Grid,
@@ -35,6 +36,7 @@ export default function ShowHolidays() {
   return (
     <Grid container>
       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+      <AddHoliday />
         <Table sx={{ background: "#eceff1" }}>
           <TableHead>
             <TableRow>
@@ -62,6 +64,7 @@ export default function ShowHolidays() {
           </TableBody>
         </Table>
       </Grid>
+
     </Grid>
   );
 }

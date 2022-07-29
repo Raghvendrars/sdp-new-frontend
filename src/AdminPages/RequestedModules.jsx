@@ -63,6 +63,7 @@ export default function RequestedModules() {
                   </TableHead>
                   <TableBody>
                     {serviceRequests.map((data, index) => {
+                      console.log(data);
                       return (
                         <TableRow>
                           <TableCell>
