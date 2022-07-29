@@ -24,13 +24,15 @@ const ListLeaveRequests = () => {
           withCredentials: true,
         })
         .then((res) => {
-          console.log("ndi",res?.data);
+          console.log("ndi", res?.data);
           setLeaveRequests(res?.data);
         });
     } catch (err) {
       console.log(err);
     }
   }, []);
+
+  console.log("leaveRequests", leaveRequests);
 
   return (
     <Paper sx={{ maxHeight: "100vh", minHeight: "100vh" }}>
@@ -55,23 +57,27 @@ const ListLeaveRequests = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>#</TableCell>
-                  <TableCell>Name</TableCell>
                   <TableCell>Leave Type</TableCell>
                   <TableCell>No of Days</TableCell>
-                  <TableCell>From - To</TableCell>
+                  <TableCell>From</TableCell>
+                  <TableCell>To</TableCell>
                   <TableCell>Reason</TableCell>
                   <TableCell>Description</TableCell>
+                  <TableCell>Status</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {leaveRequests.map((index, leaveRequest) => {
+                {leaveRequests?.map((leaveRequest, index) => {
                   return (
                     <TableRow>
                       <TableCell>
                         <Typography>{index + 1}</Typography>
                       </TableCell>
                       <TableCell sx={{ maxWidth: "300px" }}>
-                        <Typography>{leaveRequest.name}</Typography>
+                        <Typography>{leaveRequest.leaveType}</Typography>
+                      </TableCell>
+                      <TableCell sx={{ maxWidth: "300px" }}>
+                        <Typography>{leaveRequest.noOfDays}</Typography>
                       </TableCell>
                       <TableCell
                         sx={{
@@ -82,16 +88,22 @@ const ListLeaveRequests = () => {
                         }}
                       >
                         <Typography sx={{ width: "100%" }}>
-                          {leaveRequest.dateFrom - leaveRequest.dateFrom}
+                          {leaveRequest.dateFrom}
                         </Typography>
                       </TableCell>
                       <TableCell sx={{ maxWidth: "300px" }}>
                         <Typography sx={{ whiteSpace: "initial" }}>
-                          {leaveRequest.reason}
+                          {leaveRequest.dateFrom}
                         </Typography>
                       </TableCell>
                       <TableCell sx={{ maxWidth: "300px" }}>
+                        <Typography>{leaveRequest.reason}</Typography>
+                      </TableCell>
+                      <TableCell sx={{ maxWidth: "300px" }}>
                         <Typography>{leaveRequest.description}</Typography>
+                      </TableCell>
+                      <TableCell sx={{ maxWidth: "300px" }}>
+                        <Typography>{leaveRequest.status}</Typography>
                       </TableCell>
                     </TableRow>
                   );

@@ -11,7 +11,8 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import { useState, useEffect } from "react";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddCTC from "./AddCTC";
 import AddPayrole from "./AddPayrole";
 import ShowAllCTC from "./ShowAllCTC";
