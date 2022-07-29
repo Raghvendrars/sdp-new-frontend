@@ -23,6 +23,7 @@ import AttendanceTable from "../AdminPages/AttendanceTable";
 import Holidays from "../AdminPages/ShowHolidays";
 // <<<<<<< HEAD
 import Payrole from "../pages/Payrole/Payrole";
+import AllUser from "../AdminPages/AllUser";
 
 const DashboardRouter = () => {
   const [user, setUser] = useState({});
@@ -82,13 +83,13 @@ const DashboardRouter = () => {
           path="/dashboard/requestedModules"
           element={<RequestedModules />}
         />
-
         <Route path="/dashboard/appliedLeaves" element={<AppliedLeaves />} />
         <Route path="/dashboard/addPayCTC" element={<AddPayCTC />} />
         <Route path="/dashboard/register" element={<Register />} />
         <Route path="/dashboard/addpost" element={<AddPost />} />
         <Route path="/dashboard/viewHolidays" element={<Holidays />} />
         <Route path="/dashboard/viewAttendance" element={<ViewAttendance />} />
+        <Route path="/dashboard/allUser" element={<AllUser />} />
       </Routes>
     </Paper>
   );

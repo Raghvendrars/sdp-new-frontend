@@ -231,6 +231,27 @@ const Sidebar = () => {
                     </Paper>
                   </Link>
                   <Link
+                    to="/dashboard/allUser"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Paper sx={ActiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "#2266D1", fontSize: "21px", mt: 0.5 }}
+                          >
+                            <MdMiscellaneousServices />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarActiveTextStyle}>
+                            All Users
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Paper>
+                  </Link>
+                  <Link
                     to="/dashboard/addpost"
                     style={{ textDecoration: "none" }}
                   >
@@ -335,6 +356,7 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
+
                   <Link
                     to="/servicerequest/listservicerequests"
                     style={{ textDecoration: "none" }}
