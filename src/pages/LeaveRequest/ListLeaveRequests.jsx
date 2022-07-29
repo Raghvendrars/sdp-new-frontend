@@ -35,8 +35,11 @@ const ListLeaveRequests = () => {
   console.log("leaveRequests", leaveRequests);
 
   return (
-    <Paper sx={{ maxHeight: "100vh", minHeight: "100vh", marginTop:"9vh" }}>
-      <Link href="/leaverequest/addLeaveRequest"  style={{ textDecoration: "none" }}>
+    <Paper sx={{ maxHeight: "100vh", minHeight: "100vh", marginTop: "9vh" }}>
+      <Link
+        href="/leaverequest/addLeaveRequest"
+        style={{ textDecoration: "none" }}
+      >
         <Button variant="contained" color="primary" sx={{ mt: "3%" }}>
           Add Leave Request
         </Button>
@@ -112,8 +115,16 @@ const ListLeaveRequests = () => {
             </Table>
           </TableContainer> */}
 
-          <Grid container>             
-            <Grid item xl={12} lg={12} md={12} sm={12} xs={12} sx={{zIndex:0}}>
+          <Grid container>
+            <Grid
+              item
+              xl={12}
+              lg={12}
+              md={12}
+              sm={12}
+              xs={12}
+              sx={{ zIndex: 0 }}
+            >
               <Paper>
                 <TableContainer style={{ maxHeight: "80vh" }}>
                   <Table
@@ -124,29 +135,40 @@ const ListLeaveRequests = () => {
                     <TableHead>
                       <TableRow>
                         <TableCell>
+                          <Typography sx={TableHeadeTextStyle}>No</Typography>
+                        </TableCell>
+                        <TableCell>
                           <Typography sx={TableHeadeTextStyle}>Name</Typography>
                         </TableCell>
                         <TableCell>
                           <Typography sx={TableHeadeTextStyle}>
-                          Leave Type
+                            No of Days
                           </Typography>
                         </TableCell>
                         <TableCell>
                           <Typography sx={TableHeadeTextStyle}>
-                          No of Days
+                            Reason
+                          </Typography>
+                        </TableCell>
+
+                        <TableCell>
+                          <Typography sx={TableHeadeTextStyle}>
+                            From
                           </Typography>
                         </TableCell>
                         <TableCell>
                           <Typography sx={TableHeadeTextStyle}>
-                          From - To
+                            To
                           </Typography>
                         </TableCell>
                         <TableCell>
-                          <Typography sx={TableHeadeTextStyle}>Reason</Typography>
+                          <Typography sx={TableHeadeTextStyle}>
+                            Description
+                          </Typography>
                         </TableCell>
                         <TableCell>
                           <Typography sx={TableHeadeTextStyle}>
-                          Description
+                            Status
                           </Typography>
                         </TableCell>
                       </TableRow>
@@ -159,33 +181,49 @@ const ListLeaveRequests = () => {
                         overflowX: "auto",
                       }}
                     >
-                      {leaveRequests?.map((index, leaveRequest) => {
-                        console.log(data);
+                      {leaveRequests?.map((leaveRequest, index) => {
                         return (
-                          <TableRow
-                            
-                            sx={{ cursor: "pointer" }}
-                          >
+                          <TableRow sx={{ cursor: "pointer" }}>
                             <TableCell sx={{ maxWidth: "250px" }}>
                               <Typography sx={TableBodyTextStyle}>
-                                {leaveRequest.name}
+                                {index + 1}
+                              </Typography>
+                            </TableCell>
+                            <TableCell sx={{ maxWidth: "250px" }}>
+                              <Typography sx={TableBodyTextStyle}>
+                                {leaveRequest.leaveType}
+                              </Typography>
+                            </TableCell>
+                            <TableCell sx={{ maxWidth: "250px" }}>
+                              <Typography sx={TableBodyTextStyle}>
+                                {leaveRequest.noOfDays}
                               </Typography>
                             </TableCell>
                             <TableCell>
                               <Typography sx={TableBodyTextStyle}>
-                                 {leaveRequest.dateFrom - leaveRequest.dateFrom}
+                                {leaveRequest.reason}
                               </Typography>
                             </TableCell>
                             <TableCell>
                               <Typography sx={TableBodyTextStyle}>
-                              {leaveRequest.reason}
+                                {leaveRequest.dateFrom}
                               </Typography>
                             </TableCell>
                             <TableCell>
                               <Typography sx={TableBodyTextStyle}>
-                                {leaveRequest.Discription}
+                                {leaveRequest.dateTo}
                               </Typography>
-                            </TableCell>                             
+                            </TableCell>
+                            <TableCell>
+                              <Typography sx={TableBodyTextStyle}>
+                                {leaveRequest.description}
+                              </Typography>
+                            </TableCell>
+                            <TableCell>
+                              <Typography sx={TableBodyTextStyle}>
+                                {leaveRequest.status}
+                              </Typography>
+                            </TableCell>
                           </TableRow>
                         );
                       })}
@@ -202,7 +240,6 @@ const ListLeaveRequests = () => {
 };
 
 export default ListLeaveRequests;
- 
 
 const TableHeadeTextStyle = {
   fontFamily: "Poppins",

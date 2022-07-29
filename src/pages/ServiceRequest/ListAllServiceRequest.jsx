@@ -33,157 +33,117 @@ const ListAllServiceRequest = () => {
     }
   }, []);
   return (
-    <Paper sx={{ maxHeight: "100vh", minHeight: "100vh", marginTop:"9vh"}}>
-      <Link to="/servicerequest/addservicerequest" style={{textDecoration:"none"}}>
-        <Button variant="contained" color="primary" sx={{mt:"3%"}}>
+    <Paper sx={{ maxHeight: "100vh", minHeight: "100vh", marginTop: "9vh" }}>
+      <Link
+        to="/servicerequest/addservicerequest"
+        style={{ textDecoration: "none" }}
+      >
+        <Button variant="contained" color="primary" sx={{ mt: "3%" }}>
           Add Service Request
         </Button>
       </Link>
-      {/* <h1>List All Service Request</h1> */}
-        {/* <Table sx={{ background: "#eceff1" }}>
-          <TableHead>
-            <TableRow>
-              <TableCell>#</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Subject</TableCell>
-              <TableCell>Request Type</TableCell>
-              <TableCell>Requested From</TableCell>
-              <TableCell>Requested Date</TableCell>
-              <TableCell>Status</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {serviceRequests?.map((data, index) => {
-              let date = new Date(data.createdAt).toLocaleDateString();
-              console.log(data,date);
-              return (
-                <TableRow>
-                  <TableCell>
-                    <Typography>{index + 1}</Typography>
-                  </TableCell>
-                  <TableCell sx={{ maxWidth: "300px" }}>
-                    <Typography>{data.requestName}</Typography>
-                  </TableCell>
-                  <TableCell
+      
+      <Paper sx={{ width: "90%", mx: "auto", mt: "3%" }} elevation={3}>
+        <Grid container>
+          <Grid item xl={12} lg={12} md={12} sm={12} xs={12} sx={{ zIndex: 0 }}>
+            <Paper>
+              <TableContainer style={{ maxHeight: "80vh" }}>
+                <Table
+                  sx={{ minWidth: "100%" }}
+                  aria-label="simple table"
+                  stickyHeader
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>
+                        <Typography sx={TableHeadeTextStyle}>No</Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography sx={TableHeadeTextStyle}>Name</Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography sx={TableHeadeTextStyle}>
+                          Subject
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography sx={TableHeadeTextStyle}>
+                          Request Type
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography sx={TableHeadeTextStyle}>
+                          Requested From
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography sx={TableHeadeTextStyle}>Status</Typography>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody
                     sx={{
-                      maxWidth: "250px",
-
-                      whiteSpace: "unset",
-                      wordBreak: "break-all",
+                      height: "auto",
+                      maxHeight: "500px",
+                      overflowY: "auto",
+                      overflowX: "auto",
                     }}
                   >
-                    <Typography sx={{ width: "100%" }}>
-                      {data.subject}
-                    </Typography>
-                  </TableCell>
-                  <TableCell sx={{ maxWidth: "300px" }}>
-                    <Typography sx={{ whiteSpace: "initial" }}>
-                      {data.requestType}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>{data.approvalName}</TableCell>
-                  <TableCell sx={{ maxWidth: "300px" }}>
-                    <Typography>{date}</Typography>
-                  </TableCell>
-                  <TableCell>{data.requestStatus?(<>Approved</>):(<>Pending</>)}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table> */}
-        <Paper sx={{ width: "90%", mx: "auto", mt: "3%" }} elevation={3}>
-
-          <Grid container>             
-            <Grid item xl={12} lg={12} md={12} sm={12} xs={12} sx={{zIndex:0}}>
-              <Paper>
-                <TableContainer style={{ maxHeight: "80vh" }}>
-                  <Table
-                    sx={{ minWidth: "100%" }}
-                    aria-label="simple table"
-                    stickyHeader
-                    >
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>
-                          <Typography sx={TableHeadeTextStyle}>Name</Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={TableHeadeTextStyle}>
-                          Subject
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={TableHeadeTextStyle}>
-                          Request Type
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={TableHeadeTextStyle}>
-                          Requested From
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={TableHeadeTextStyle}>Status</Typography>
-                        </TableCell>                         
-                      </TableRow>
-                    </TableHead>
-                    <TableBody
-                      sx={{
-                        height: "auto",
-                        maxHeight: "500px",
-                        overflowY: "auto",
-                        overflowX: "auto",
-                      }}
-                      >
-                      {serviceRequests?.map((data, index) => {
-                        let date = new Date(data.createdAt).toLocaleDateString();
-                        console.log(data,date);
-                        console.log(data);
-                        return (
-                          <TableRow
-                          
-                          sx={{ cursor: "pointer" }}
-                          >
-                            <TableCell sx={{ maxWidth: "250px" }}>
-                              <Typography sx={TableBodyTextStyle}>
-                              {data.requestName}
-                              </Typography>
-                            </TableCell>
-                            <TableCell>
-                              <Typography sx={TableBodyTextStyle}>
+                    {serviceRequests?.map((data, index) => {
+                      let date = new Date(data.createdAt).toLocaleDateString();
+                      console.log(data, date);
+                      console.log(data);
+                      return (
+                        <TableRow sx={{ cursor: "pointer" }}>
+                          <TableCell sx={{ maxWidth: "250px" }}>
+                            <Typography sx={TableBodyTextStyle}>
+                              {index + 1}
+                            </Typography>
+                          </TableCell>
+                          <TableCell sx={{ maxWidth: "250px" }}>
+                            <Typography sx={TableBodyTextStyle}>
+                              {data.leaveType}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography sx={TableBodyTextStyle}>
                               {data.subject}
-                              </Typography>
-                            </TableCell>
-                            <TableCell>
-                              <Typography sx={TableBodyTextStyle}>
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography sx={TableBodyTextStyle}>
                               {data.requestType}
-                              </Typography>
-                            </TableCell>
-                            <TableCell>
-                              <Typography sx={TableBodyTextStyle}>
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography sx={TableBodyTextStyle}>
                               {data.approvalName}
-                              </Typography>
-                            </TableCell>                             
-                            <TableCell>
-                              <Typography sx={TableBodyTextStyle}>
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography sx={TableBodyTextStyle}>
                               {date}
-                              </Typography>
-                            </TableCell>                             
-                            <TableCell>
-                              <Typography sx={TableBodyTextStyle}>
-                              {data.requestStatus?(<>Approved</>):(<>Pending</>)}
-                              </Typography>
-                            </TableCell>                             
-                          </TableRow>
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </Paper>
-            </Grid>
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography sx={TableBodyTextStyle}>
+                              {data.requestStatus ? (
+                                <>Approved</>
+                              ) : (
+                                <>Pending</>
+                              )}
+                            </Typography>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
           </Grid>
-        </Paper>
+        </Grid>
+      </Paper>
     </Paper>
   );
 };
