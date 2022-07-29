@@ -21,11 +21,13 @@ import AvtarImg from "./avatar.jpg";
 import { GiHamburgerMenu, GiArchiveRegister } from "react-icons/gi";
 import { HiOutlineUserAdd, HiOutlineUserGroup } from "react-icons/hi";
 import { MdOutlinePostAdd } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 import AddHoliday from "../AdminPages/AddHoliday";
 // import  AllRoleStatus from "../../Utils/AllRoleStatus";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState({});
 
@@ -41,6 +43,7 @@ const Sidebar = () => {
         });
     } catch (err) {
       alert(err);
+      navigate("/login");
     }
   }, []);
 
@@ -200,7 +203,7 @@ const Sidebar = () => {
                         </Grid>
                         <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
                           <Typography sx={SidebarActiveTextStyle}>
-                            Payroll/CTC 
+                            Payroll/CTC
                           </Typography>
                         </Grid>
                       </Grid>
@@ -251,7 +254,6 @@ const Sidebar = () => {
                   <Link
                     to="/attendance"
                     style={{ textDecoration: "none", marginTop: "10px" }}
-
                   >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
@@ -291,7 +293,6 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
-                  
                 </Stack>
               ) : (
                 <Stack spacing={2}>
@@ -313,7 +314,10 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
-                  <Link to="/leaverequest/listleaverequests" style={{ textDecoration: "none" }}>
+                  <Link
+                    to="/leaverequest/listleaverequests"
+                    style={{ textDecoration: "none" }}
+                  >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
@@ -331,7 +335,10 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
-                  <Link to="/servicerequest/listservicerequests" style={{ textDecoration: "none" }}>
+                  <Link
+                    to="/servicerequest/listservicerequests"
+                    style={{ textDecoration: "none" }}
+                  >
                     <Paper sx={ActiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
                         <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
@@ -388,7 +395,7 @@ const Sidebar = () => {
                 </Stack>
               )}
 
-              <Paper sx={{cursor:"pointer"}} elevation={0} onClick={logout}>
+              <Paper sx={{ cursor: "pointer" }} elevation={0} onClick={logout}>
                 <Grid container mt={1}>
                   <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
                     <Typography
