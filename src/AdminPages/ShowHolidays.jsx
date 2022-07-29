@@ -15,21 +15,20 @@ import {
 
 export default function ShowHolidays() {
   const [holidays, setHolidays] = useState([]);
-  console.log(holidays);
 
   useEffect(() => {
-    // try {
-    //   axios
-    //     .get("holidays/getAllHolidays", {
-    //       withCredentials: true,
-    //     })
-    //     .then((res) => {
-    //       console.log(res?.data);
-    //       setHolidays(res?.data);
-    //     });
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      axios
+        .get("employeeHolidays/getAllHolidays", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res?.data);
+          setHolidays(res?.data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
 
@@ -46,14 +45,13 @@ export default function ShowHolidays() {
           </TableHead>
           <TableBody>
             {holidays?.map((data, index) => {
-              console.log(data);
               return (
                 <TableRow>
                   <TableCell>
                     <Typography>{index + 1}</Typography>
                   </TableCell>
                   <TableCell sx={{ maxWidth: "300px" }}>
-                    <Typography>{data.holidayName}</Typography>
+                    <Typography>{data?.holidayName}</Typography>
                   </TableCell>
                   <TableCell sx={{ maxWidth: "300px" }}>
                     <Typography>{data.holidayDate}</Typography>

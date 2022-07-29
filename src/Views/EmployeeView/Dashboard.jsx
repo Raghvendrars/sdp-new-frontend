@@ -128,25 +128,27 @@ const Dashboard = () => {
                 </Link>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Button
-                  varient="contained"
-                  sx={{
-                    width: "80%",
-                    mx: "auto",
-                    bgcolor: "#FFF7CD",
-                    height: "280px",
-                    borderRadius: "20px",
-                    display: "block",
-                  }}
-                >
-                  <Typography sx={{ color: "#FFD600" }}>
-                    <FaMoneyCheckAlt size={80} />
-                  </Typography>
-                  <br />
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                    Payrole
-                  </Typography>
-                </Button>
+                <Link to={"/payrole"}>
+                  <Button
+                    varient="contained"
+                    sx={{
+                      width: "80%",
+                      mx: "auto",
+                      bgcolor: "#FFF7CD",
+                      height: "280px",
+                      borderRadius: "20px",
+                      display: "block",
+                    }}
+                  >
+                    <Typography sx={{ color: "#FFD600" }}>
+                      <FaMoneyCheckAlt size={80} />
+                    </Typography>
+                    <br />
+                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                      Payrole
+                    </Typography>
+                  </Button>
+                </Link>
               </Grid>
             </Grid>
           </Paper>

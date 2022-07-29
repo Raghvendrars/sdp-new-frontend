@@ -349,6 +349,24 @@ const Sidebar = () => {
                       </Grid>
                     </Paper>
                   </Link>
+                  <Link to="/attendance" style={{ textDecoration: "none" }}>
+                    <Paper sx={UnactiveSidebarBox} elevation={0}>
+                      <Grid container mt={1}>
+                        <Grid item xl={3} lg={3} md={3} sm={3} xs={3}>
+                          <Typography
+                            sx={{ color: "gray", fontSize: "23px", mt: 0.5 }}
+                          >
+                            <BiRupee />
+                          </Typography>
+                        </Grid>
+                        <Grid item xl={9} lg={9} md={9} sm={9} xs={9}>
+                          <Typography sx={SidebarUnactiveTextStyle}>
+                            View Attendance
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Paper>
+                  </Link>
                   <Link to="/payrole" style={{ textDecoration: "none" }}>
                     <Paper sx={UnactiveSidebarBox} elevation={0}>
                       <Grid container mt={1}>
