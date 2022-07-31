@@ -54,7 +54,7 @@ function App() {
     }
   }, []);
 
-  console.log(user);
+  console.log("----", role);
 
   return (
     <div className="App">
@@ -65,11 +65,11 @@ function App() {
               <Sidebar />
             </Grid>
             <Grid xl={10} lg={10} md={10} sm={10} xs={10}>
-              <Grid container>
+              <Grid container sx={{marginTop:"1%"}}>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                  <Header />
+                  {role === "Admin" || role === "HR" ? null : <Header />}
                 </Grid>
-                <Grid xl={12} md={12} lg={12} sm={12} xs={12}>
+                <Grid xl={12} md={12} lg={12} sm={12} xs={12} sx={{mt:1}}>
                   <Routes>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/dashboard" element={<Dashboard />} />

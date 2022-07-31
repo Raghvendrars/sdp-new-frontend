@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const GetLeaves = () => {
-  const [leaves, setLeaves] = useState([]);
+const GetAttendance = () => {
+  const [attendance, setAttendance] = useState([]);
   async function getAllLeaves() {
     try {
       await axios
-        .get("allLeaves/get_leave_requests", { withCredentials: true })
+        .get("attendance_admin/get_employee_attendence", { withCredentials: true })
         .then((res) => {
-          setLeaves(res.data);
+            setAttendance(res.data);
         });
     } catch (err) {
       console.log(err);
@@ -19,7 +19,7 @@ const GetLeaves = () => {
     getAllLeaves();
   }, []);
 
-  return <div>{leaves.length}</div>;
+  return <div>{attendance.length}</div>;
 };
 
-export default GetLeaves;
+export default GetAttendance;

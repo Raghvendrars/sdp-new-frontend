@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const GetLeaves = () => {
-  const [leaves, setLeaves] = useState([]);
+const GetPayrole = () => {
+  const [payrole, setPayrole] = useState([]);
   async function getAllLeaves() {
     try {
       await axios
-        .get("allLeaves/get_leave_requests", { withCredentials: true })
+        .get("adminPayrole/getAllPayrole", { withCredentials: true })
         .then((res) => {
-          setLeaves(res.data);
+          setPayrole(res.data);
         });
     } catch (err) {
       console.log(err);
@@ -19,7 +19,7 @@ const GetLeaves = () => {
     getAllLeaves();
   }, []);
 
-  return <div>{leaves.length}</div>;
+  return <div>{payrole.length}</div>;
 };
 
-export default GetLeaves;
+export default GetPayrole;

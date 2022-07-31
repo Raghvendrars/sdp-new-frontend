@@ -42,7 +42,6 @@ export default function SignIn() {
       axios
         .get("auth/getLoggedInUser", { withCredentials: true })
         .then((res) => {
-          console.log(res?.data);
           if (res?.data) {
             navigate("/dashboard");
           }
@@ -53,7 +52,6 @@ export default function SignIn() {
   }, []);
 
   const handleSubmit = (e) => {
-    console.log("handleSubmit");
     e.preventDefault();
     axios
       .post(

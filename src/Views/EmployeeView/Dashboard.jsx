@@ -1,21 +1,27 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Paper, Grid, Button, Typography, Container } from "@mui/material";
+import { Paper, Grid, Button, Typography } from "@mui/material";
 import { MdMiscellaneousServices } from "react-icons/md";
 // import ListAllLeaves from "../../pages/DashboardPages/ListAllLeaves";
 // import ListAllHolidays from "../../pages/DashboardPages/ListAllHolidays";
 import { ImExit } from "react-icons/im";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { FaMoneyCheckAlt } from "react-icons/fa";
-import ShowHolidays from "../../AdminPages/ShowHolidays";
-import { Link } from "react-router-dom";
 import ListAllHolidays from "../../pages/DashboardPages/ListAllHolidays";
+import GetLeaves from "../../hooks/Leaves/GetLeaves";
+import GetRequests from "../../hooks/Requests/GetRequests";
+import GetAttendance from "../../hooks/Attendance/GetAttendance";
+import GetPayrole from "../../hooks/Payrole/GetPayrole";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
 
-  useEffect(() => {
+  // const [getrequest, setGetrequest] = useState([]);
+  // const [attendance, setAttendance] = useState([]);
+  // const [getPayrole,setPayrole] = useState([]);
+
+  async function getUser() {
     try {
       axios
         .get("auth/getLoggedInUser", {
@@ -27,10 +33,30 @@ const Dashboard = () => {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  // async function getAllPayrole() {
+  //   try {
+  //     await axios
+  //       .get("adminPayrole/getAllPayrole", { withCredentials: true })
+  //       .then((res) => {
+  //         setPayrole(res.data);
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+  useEffect(() => {
+    getUser();
+    // getAllPayrole();
   }, []);
 
+  // console.log(getPayrole.length);
   return (
-    <Paper sx={{ bgcolor: "transparent", borderRadius: "0px",width:"100%" }} elevation={0}>
+    <Paper
+      sx={{ bgcolor: "transparent", borderRadius: "0px", width: "100%" }}
+      elevation={0}
+    >
       <Grid container>
         <Grid
           item
@@ -49,12 +75,15 @@ const Dashboard = () => {
               sx={{
                 fontFamily: "Inter",
                 fontWeight: 500,
-                fontSize: "20px",
+                fontSize: "16px",
                 ml: 2,
                 mr: "auto",
               }}
             >
-              Welcome Back {user?.employeeName}
+              Welcome Back{" "}
+              <span style={{ color: "gray", fontSize: "20px" }}>
+                {user?.employeeName}
+              </span>
             </Typography>
           </Paper>
         </Grid>
@@ -85,14 +114,20 @@ const Dashboard = () => {
                         sm: "50px",
                         xs: "50px",
                       },
-                      lineHeight: "70px",
+                      lineHeight: "50px",
                     }}
                   >
                     <MdMiscellaneousServices />
                   </Typography>
-
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                    Service Request
+                  <GetRequests />
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontFamily: "Inter",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Service Requests
                   </Typography>
                 </Button>
               </Grid>
@@ -125,7 +160,27 @@ const Dashboard = () => {
                   >
                     <ImExit />
                   </Typography>
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        xl: "35px",
+                        lg: "35px",
+                        md: "35px",
+                        sm: "30px",
+                        xs: "30px",
+                      },
+                      lineHeight: "50px",
+                    }}
+                  >
+                    <GetLeaves />
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontFamily: "Inter",
+                      fontSize: "14px",
+                    }}
+                  >
                     Applied Leaves
                   </Typography>
                 </Button>
@@ -159,7 +214,28 @@ const Dashboard = () => {
                   >
                     <HiOutlineUserGroup />
                   </Typography>
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        xl: "35px",
+                        lg: "35px",
+                        md: "35px",
+                        sm: "30px",
+                        xs: "30px",
+                      },
+                      lineHeight: "50px",
+                    }}
+                  >
+                    <GetAttendance />
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontFamily: "Inter",
+                      fontSize: "14px",
+                    }}
+                  >
                     Attendance
                   </Typography>
                 </Button>
@@ -179,16 +255,41 @@ const Dashboard = () => {
                     display: "block",
                   }}
                 >
-                  <Typography sx={{ color: "#FFD600",fontSize: {
+                  <Typography
+                    sx={{
+                      color: "#FFD600",
+                      fontSize: {
                         xl: "50px",
                         lg: "50px",
                         md: "40px",
                         sm: "30px",
                         xs: "30px",
-                      }, }}>
+                      },
+                    }}
+                  >
                     <FaMoneyCheckAlt />
                   </Typography>
-                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        xl: "35px",
+                        lg: "35px",
+                        md: "35px",
+                        sm: "30px",
+                        xs: "30px",
+                      },
+                      lineHeight: "50px",
+                    }}
+                  >
+                    <GetPayrole />
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontFamily: "Inter",
+                      fontSize: "14px",
+                    }}
+                  >
                     Payrole
                   </Typography>
                 </Button>
@@ -197,15 +298,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid
-          item
-          xl={12}
-          lg={12}
-          md={12}
-          sm={12}
-          xs={12}
-          mt={"5%"}
-        >
+        <Grid item xl={12} lg={12} md={12} sm={12} xs={12} mt={"5%"}>
           <Paper sx={{ bgcolor: "transparent" }} elevation={0}>
             <Grid container>
               <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
