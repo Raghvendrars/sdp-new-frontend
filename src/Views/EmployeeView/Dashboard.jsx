@@ -10,6 +10,7 @@ import { HiOutlineUserGroup } from "react-icons/hi";
 import { FaMoneyCheckAlt } from "react-icons/fa";
 import ShowHolidays from "../../AdminPages/ShowHolidays";
 import { Link } from "react-router-dom";
+import ListAllHolidays from "../../pages/DashboardPages/ListAllHolidays";
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -29,7 +30,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Paper sx={{ bgcolor: "transparent", borderRadius: "0px" }} elevation={0}>
+    <Paper sx={{ bgcolor: "transparent", borderRadius: "0px",width:"100%" }} elevation={0}>
       <Grid container>
         <Grid
           item
@@ -61,107 +62,164 @@ const Dashboard = () => {
           <Paper sx={{ bgcolor: "transparent" }} elevation={0}>
             <Grid container>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Link to={"/servicerequest/listservicerequests"}>
-                  <Button
-                    varient="contained"
+                <Button
+                  varient="contained"
+                  sx={{
+                    mx: "auto",
+                    bgcolor: "#D1E9FC",
+                    width: "100%",
+                    maxWidth: "250px",
+                    height: "100%",
+                    minHeight: "200px",
+                    maxHeight: "200px",
+                    borderRadius: "20px",
+                    display: "block",
+                  }}
+                >
+                  <Typography
                     sx={{
-                      width: "80%",
-                      mx: "auto",
-                      bgcolor: "#D1E9FC",
-                      height: "280px",
-                      borderRadius: "20px",
-                      display: "block",
+                      fontSize: {
+                        xl: "70px",
+                        lg: "70px",
+                        md: "70px",
+                        sm: "50px",
+                        xs: "50px",
+                      },
+                      lineHeight: "70px",
                     }}
                   >
-                    <MdMiscellaneousServices size={100} />
-                    <br />
-                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                      Service Request
-                    </Typography>
-                  </Button>
-                </Link>
+                    <MdMiscellaneousServices />
+                  </Typography>
+
+                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                    Service Request
+                  </Typography>
+                </Button>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Link to={"/leaverequest/listleaverequests"}>
-                  <Button
-                    varient="contained"
+                <Button
+                  varient="contained"
+                  sx={{
+                    mx: "auto",
+                    bgcolor: "#FFE7D9",
+                    width: "100%",
+                    maxWidth: "250px",
+                    height: "100%",
+                    minHeight: "200px",
+                    maxHeight: "200px",
+                    borderRadius: "20px",
+                    display: "block",
+                  }}
+                >
+                  <Typography
                     sx={{
-                      width: "80%",
-                      mx: "auto",
-                      bgcolor: "#FFE7D9",
-                      height: "280px",
-                      borderRadius: "20px",
-                      display: "block",
+                      color: "#ff7c00",
+                      fontSize: {
+                        xl: "50px",
+                        lg: "50px",
+                        md: "40px",
+                        sm: "30px",
+                        xs: "30px",
+                      },
                     }}
                   >
-                    <Typography sx={{ color: "#ff7c00" }}>
-                      <ImExit size={80} />
-                    </Typography>
-                    <br />
-                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                      Applied Leaves
-                    </Typography>
-                  </Button>
-                </Link>
+                    <ImExit />
+                  </Typography>
+                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                    Applied Leaves
+                  </Typography>
+                </Button>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Link to={"/attendance"}>
-                  <Button
-                    varient="contained"
+                <Button
+                  varient="contained"
+                  sx={{
+                    mx: "auto",
+                    bgcolor: "#D0F2FF",
+                    width: "100%",
+                    maxWidth: "250px",
+                    height: "100%",
+                    minHeight: "200px",
+                    maxHeight: "200px",
+                    borderRadius: "20px",
+                    display: "block",
+                  }}
+                >
+                  <Typography
                     sx={{
-                      width: "80%",
-                      mx: "auto",
-                      bgcolor: "#D0F2FF",
-                      height: "280px",
-                      borderRadius: "20px",
-                      display: "block",
+                      color: "#00B8FF",
+                      fontSize: {
+                        xl: "50px",
+                        lg: "50px",
+                        md: "40px",
+                        sm: "30px",
+                        xs: "30px",
+                      },
                     }}
                   >
-                    <Typography sx={{ color: "#00B8FF" }}>
-                      <HiOutlineUserGroup size={80} />
-                    </Typography>
-                    <br />
-                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                      Attendance
-                    </Typography>
-                  </Button>
-                </Link>
+                    <HiOutlineUserGroup />
+                  </Typography>
+                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                    Attendance
+                  </Typography>
+                </Button>
               </Grid>
               <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
-                <Link to={"/payrole"}>
-                  <Button
-                    varient="contained"
-                    sx={{
-                      width: "80%",
-                      mx: "auto",
-                      bgcolor: "#FFF7CD",
-                      height: "280px",
-                      borderRadius: "20px",
-                      display: "block",
-                    }}
-                  >
-                    <Typography sx={{ color: "#FFD600" }}>
-                      <FaMoneyCheckAlt size={80} />
-                    </Typography>
-                    <br />
-                    <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
-                      Payrole
-                    </Typography>
-                  </Button>
-                </Link>
+                <Button
+                  varient="contained"
+                  sx={{
+                    mx: "auto",
+                    bgcolor: "#FFF7CD",
+                    width: "100%",
+                    maxWidth: "250px",
+                    height: "100%",
+                    minHeight: "200px",
+                    maxHeight: "200px",
+                    borderRadius: "20px",
+                    display: "block",
+                  }}
+                >
+                  <Typography sx={{ color: "#FFD600",fontSize: {
+                        xl: "50px",
+                        lg: "50px",
+                        md: "40px",
+                        sm: "30px",
+                        xs: "30px",
+                      }, }}>
+                    <FaMoneyCheckAlt />
+                  </Typography>
+                  <Typography sx={{ color: "#000", fontFamily: "Inter" }}>
+                    Payrole
+                  </Typography>
+                </Button>
               </Grid>
             </Grid>
           </Paper>
         </Grid>
 
-        <Grid item xl={12} lg={12} md={12} sm={12} xs={12} mt={2}>
-          <Grid container mt={1}>
-            <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-              <Paper sx={{ width: "90%", padding: "0px", mx: "auto" }}>
-                <ShowHolidays />
-              </Paper>
+        <Grid
+          item
+          xl={12}
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          mt={"5%"}
+        >
+          <Paper sx={{ bgcolor: "transparent" }} elevation={0}>
+            <Grid container>
+              <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+                <Paper sx={{ width: "90%", padding: "0px", mx: "auto" }}>
+                  <ListAllHolidays />
+                </Paper>
+              </Grid>
+              <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
+                <Paper sx={{ width: "90%", padding: "0px", mx: "auto" }}>
+                  <ListAllHolidays />
+                </Paper>
+              </Grid>
             </Grid>
-          </Grid>
+          </Paper>
         </Grid>
       </Grid>
     </Paper>

@@ -18,7 +18,6 @@ const Payrole = () => {
       axios
         .get("empPayrole/getCurrentMonthMyPayrole", { withCredentials: true })
         .then((res) => {
-          console.log(res.data);
           setPayrole(res?.data);
         });
     } catch (err) {

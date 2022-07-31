@@ -25,7 +25,6 @@ const ListAllServiceRequest = () => {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res?.data);
           setServiceRequests(res?.data);
         });
     } catch (err) {
@@ -96,8 +95,6 @@ const ListAllServiceRequest = () => {
                   >
                     {serviceRequests?.map((data, index) => {
                       let date = new Date(data.createdAt).toLocaleDateString();
-                      console.log(data, date);
-                      console.log(data);
                       return (
                         <TableRow sx={{ cursor: "pointer" }}>
                           <TableCell sx={{ maxWidth: "250px" }}>
