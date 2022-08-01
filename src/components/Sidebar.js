@@ -29,7 +29,7 @@ import AddHoliday from "../AdminPages/AddHoliday";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
 
   useEffect(() => {
     try {
@@ -38,16 +38,12 @@ const Sidebar = () => {
           withCredentials: true,
         })
         .then((res) => {
-          setUser(res?.data);
-          console.log(res?.data);
+          setUser(res.data);
         });
     } catch (err) {
       alert(err);
-      navigate("/login");
     }
   }, []);
-
-  console.log("user", user);
 
   async function logout() {
     try {
@@ -144,7 +140,7 @@ const Sidebar = () => {
               elevation={0}
             >
               {/* Admin Routes */}
-              {user.role === "Admin" ? (
+              {user?.role === "Admin" ? (
                 <Stack>
                   <Link
                     to="/dashboard/requestedModules"

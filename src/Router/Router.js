@@ -8,7 +8,6 @@ import ListLeaveRequests from "../pages/LeaveRequest/ListLeaveRequests";
 import ListAllServiceRequest from "../pages/ServiceRequest/ListAllServiceRequest";
 import ServiceRequest from "../pages/ServiceRequest/ServiceRequest";
 import Header from "../components/Header";
-import Attendance from "../pages/Attendance/Attendance";
 import RequestedModules from "../AdminPages/RequestedModules";
 import AddPayCTC from "../AdminPages/AddPayCTC";
 import Register from "../AdminPages/Register";
@@ -18,17 +17,16 @@ import AppliedLeaves from "../AdminPages/AppliedLeaves";
 import AppliedLeavesAdmin from "../AdminPages/AppliedLeavesAdmin";
 import { useNavigate } from "react-router-dom";
 import AttendanceTable from "../AdminPages/AttendanceTable";
-// <<<<<<< HEAD
-// import AuthPayroll from "../Views/EmployeeView/AuthPayroll";
-// =======
+
+import Attendance from "../pages/Attendance/Attendance";
 import Holidays from "../AdminPages/ShowHolidays";
-// <<<<<<< HEAD
-import Payrole from "../pages/Payrole/Payrole";
 import AllUser from "../AdminPages/AllUser";
+import Payrole from "../pages/Payrole/Payrole";
+
 
 const DashboardRouter = () => {
-  const [user, setUser] = useState({});
-  const navigate = useNavigate();
+  const [user, setUser] = useState(false);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -37,17 +35,14 @@ const DashboardRouter = () => {
           withCredentials: true,
         })
         .then((res) => {
-          setUser(res.data);
+          setUser(true);
         });
     } catch (err) {
       console.log(err);
     }
-    if (!user) {
-      navigate("/login");
-    }
+
   }, []);
 
-  console.log(user.role);
 
   return (
     <Paper sx={{ bgcolor: "#f9fafb", height: "100vh" }}>
@@ -78,8 +73,6 @@ const DashboardRouter = () => {
           element={<ListAllServiceRequest />}
         />
         <Route path="/attendance" element={<Attendance />} />
-        {/* <Route path="/auth-payroll" element={<AuthPayroll />} /> */}
-        {/* <Route path="/login" element={<Login />} /> */}
         <Route
           path="/dashboard/requestedModules"
           element={<RequestedModules />}

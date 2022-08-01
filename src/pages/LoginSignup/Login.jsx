@@ -3,19 +3,15 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 // import LockOutlinedIcon from "@mui/icons/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AllRoleStatus from "../../Utils/AllRoleStatus";
+
 
 function Copyright(props) {
   return (
@@ -41,10 +37,21 @@ export default function SignIn() {
   const [id, setIdOfUser] = useState("");
   const [password, setPasswordOfUser] = useState("");
 
-  console.log(id, password);
+  useEffect(() => {
+    try {
+      axios
+        .get("auth/getLoggedInUser", { withCredentials: true })
+        .then((res) => {
+          if (res?.data) {
+            navigate("/dashboard");
+          }
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
-    console.log("handleSubmit");
     e.preventDefault();
     axios
       .post(
@@ -58,7 +65,8 @@ export default function SignIn() {
       .then((res) => {
         console.log(res);
         if (res.data) {
-          navigate("/");
+          window.location.reload();
+          navigate("/dashboard");
         } else {
           alert("Invalid Credentials");
         }
@@ -128,10 +136,6 @@ export default function SignIn() {
               }}
               autoComplete="current-password"
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
             <Button
               type="submit"
               fullWidth
@@ -140,18 +144,6 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            {/* <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid> */}
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />

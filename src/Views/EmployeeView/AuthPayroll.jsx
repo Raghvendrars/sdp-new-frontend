@@ -21,7 +21,6 @@ export default function AuthPayroll() {
         })
         .then((res) => {
           setAttendanceData(res?.data);
-          console.log(res[0]?.data);
         });
     }, []);
   
