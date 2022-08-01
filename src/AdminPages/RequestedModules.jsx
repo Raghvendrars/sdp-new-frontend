@@ -21,7 +21,7 @@ export default function RequestedModules() {
   useEffect(() => {
     try {
       axios
-        .get("serviceRequest/get_request", {
+        .get("adminServiceRequest/get_all_request", {
           withCredentials: true,
         })
         .then((res) => {

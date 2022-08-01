@@ -15,6 +15,7 @@ import Register from "../AdminPages/Register";
 import AddPost from "../AdminPages/AddPost";
 import ViewAttendance from "../AdminPages/ViewAttendance";
 import AppliedLeaves from "../AdminPages/AppliedLeaves";
+import AppliedLeavesAdmin from "../AdminPages/AppliedLeavesAdmin";
 import { useNavigate } from "react-router-dom";
 import AttendanceTable from "../AdminPages/AttendanceTable";
 // <<<<<<< HEAD
@@ -90,6 +91,10 @@ const DashboardRouter = () => {
         <Route path="/dashboard/viewHolidays" element={<Holidays />} />
         <Route path="/dashboard/viewAttendance" element={<ViewAttendance />} />
         <Route path="/dashboard/allUser" element={<AllUser />} />
+        <Route
+          path="/dashboard/appliedLeavesAdmin"
+          element={<AppliedLeavesAdmin />}
+        />
       </Routes>
     </Paper>
   );

@@ -29,6 +29,25 @@ export default function AllUser() {
       console.log(err);
     }
   }, []);
+  async function Delete(props) {
+    console.log(props);
+    try {
+      axios
+        .delete(
+          `employee/delete_employee/` + props,
+
+          { withCredentials: true }
+        )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   console.log(getEmployee);
   return (
@@ -51,7 +70,17 @@ export default function AllUser() {
               <TableCell>{data.firstName}</TableCell>
               <TableCell>{data.role}</TableCell>
               <TableCell>{data.designation}</TableCell>
-              <TableCell>Action</TableCell>
+              <TableCell>
+                <Button
+                  onClick={() => {
+                    Delete(data._id);
+
+                    // setStatus("Decline");
+                  }}
+                >
+                  Delete
+                </Button>
+              </TableCell>
             </TableRow>
           );
         })}
